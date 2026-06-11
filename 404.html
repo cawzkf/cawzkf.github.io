@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — command not found · Camila Félix dos Reis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2316C60C'>%3E</text></svg>" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <main style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;">
+    <div class="window" style="width:min(640px,92vw);">
+      <div class="window-bar">
+        <span class="wb-tab"><span class="wb-tname">~/404</span><span class="wb-tx">✕</span></span>
+        <span class="wb-add">＋</span><span class="wb-chev">⌄</span>
+        <span class="wb-gap"></span>
+        <span class="wb-ctl"><span class="c-min">﹣</span><span class="c-max">▢</span><span class="c-close">✕</span></span>
+      </div>
+      <div class="window-body mono" style="font-family:'JetBrains Mono',monospace;">
+        <p class="line"><span class="p10k-seg">~</span><span class="p10k-arrow">❯</span> cd <span id="path">/pagina</span></p>
+        <p class="line" style="color:var(--red);">bash: cd: <span id="path2">pagina</span>: No such file or directory</p>
+        <p class="line" style="margin-top:1rem;"><span class="p10k-seg">~</span><span class="p10k-arrow">❯</span> ls ~/</p>
+        <ul style="list-style:none;font-family:'JetBrains Mono',monospace;font-size:.9rem;margin:.4rem 0 1rem;">
+          <li style="padding:.25rem 0;">› <a href="/#projects">projetos/</a></li>
+          <li style="padding:.25rem 0;">› <a href="/#experience">experiência/</a></li>
+          <li style="padding:.25rem 0;">› <a href="/#aas">aas/</a></li>
+          <li style="padding:.25rem 0;">› <a href="/#contact">contato/</a></li>
+        </ul>
+        <p class="line"><span class="p10k-seg">~</span><span class="p10k-arrow">❯</span> <a href="/" class="btn primary" style="margin-left:.4rem;">cd ~ &nbsp;(voltar ao início)</a></p>
+        <p class="line" style="color:var(--text-dim);margin-top:1.4rem;">erro 404 · página não encontrada &nbsp; <span style="color:var(--green);">ฅ^•﹌•^ฅ</span></p>
+      </div>
+    </div>
+  </main>
+
+  <a class="cat-corner" href="/" aria-label="voltar" title="meow ~">
+    <svg viewBox="0 0 64 82" width="56" height="72">
+      <path class="cat-tail" d="M50 72 C66 70 64 50 56 49"/>
+      <path class="cat-body" d="M13 80 C6 62 7 40 15 23 L9 6 C9 3 12 2 14 5 L23 15 C28 12 36 12 41 15 L50 5 C52 2 55 3 55 6 L49 23 C57 40 58 62 51 80 Z"/>
+      <ellipse class="cat-eye" cx="25" cy="35" rx="3" ry="4.3"/>
+      <ellipse class="cat-eye" cx="39" cy="35" rx="3" ry="4.3"/>
+    </svg>
+  </a>
+
+  <script>
+    // reflect the attempted path
+    var p = location.pathname || '/pagina';
+    var el = document.getElementById('path'), el2 = document.getElementById('path2');
+    if (el) el.textContent = p;
+    if (el2) el2.textContent = p.replace(/^\//, '');
+  </script>
+</body>
+</html>

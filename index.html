@@ -9,16 +9,18 @@
   <meta property="og:url" content="https://cawzkf.github.io/" />
   <meta property="og:title" content="Camila Félix dos Reis — Engenheira de Software · CPS" />
   <meta property="og:description" content="Engenheira de Software · Sistemas Ciberfísicos, Gêmeos Digitais, AAS/OPC UA e IA em edge. Tech Lead @ Mach Force · P&D @ Cyberlabs — UEA." />
-  <meta property="og:image" content="https://cawzkf.github.io/camila.jpeg" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://cawzkf.github.io/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Camila Félix dos Reis — Engenheira de Software · CPS" />
   <meta name="twitter:description" content="Sistemas Ciberfísicos, Gêmeos Digitais, AAS/OPC UA e IA em edge." />
-  <meta name="twitter:image" content="https://cawzkf.github.io/camila.jpeg" />
+  <meta name="twitter:image" content="https://cawzkf.github.io/og-card.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2316C60C'>%3E</text></svg>" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
 </head>
 <body>
   <div class="scanlines" aria-hidden="true"></div>
@@ -67,7 +69,7 @@
           <p class="line prompt-line"><span class="p10k-seg">~</span><span class="p10k-arrow">❯</span> <span class="typed" id="hero-cmd"></span><span class="cursor"></span><span class="p10k-clock" id="clock">00:00:00</span></p>
           <div class="hero-output" id="hero-output">
             <div class="hero-avatar">
-              <img src="camila.jpeg" width="400" height="400" decoding="async" alt="Camila Félix dos Reis" loading="lazy" />
+              <img src="camila.jpeg" width="675" height="900" decoding="async" alt="Camila Félix dos Reis" loading="lazy" />
               <span class="avatar-tag">./camila.jpeg</span>
             </div>
             <h1 class="hero-name">Camila Félix dos Reis</h1>
@@ -90,6 +92,7 @@
               <a class="btn primary" href="#projects" data-i18n="hero.cta1">ver projetos →</a>
               <a class="btn" href="https://www.linkedin.com/in/camila-felix-dos-reis" target="_blank" rel="noopener">linkedin</a>
               <a class="btn" href="http://lattes.cnpq.br/4899528348009614" target="_blank" rel="noopener" data-i18n="hero.cta2">currículo lattes</a>
+              <a class="btn" href="cv.html" target="_blank" rel="noopener">CV</a>
             </div>
           </div>
         </div>
@@ -215,6 +218,30 @@
             </div>
 
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TWIN (live telemetry) ===== -->
+    <section id="twin" class="section">
+      <h2 class="section-title"><span class="hash">#</span> <span data-i18n="twin.title">telemetria · digital twin</span></h2>
+      <p class="section-sub">$ basyx submodel watch VehicleEnergySystem --live</p>
+      <div class="window twin-window">
+        <div class="window-bar">
+          <span class="wb-tab"><span class="wb-tname">~/vehicle_twin.live</span><span class="wb-tx">✕</span></span>
+          <span class="wb-add">＋</span><span class="wb-chev">⌄</span>
+          <span class="wb-gap"></span>
+          <span class="wb-ctl"><span class="c-min">﹣</span><span class="c-max">▢</span><span class="c-close">✕</span></span>
+        </div>
+        <div class="window-body mono">
+          <div class="twin-grid">
+            <div class="twin-row"><span class="twin-k">SoC</span><div class="twin-bar"><i id="t-soc-bar"></i></div><span class="twin-v" id="t-soc">72.4%</span></div>
+            <div class="twin-row"><span class="twin-k">power</span><canvas id="t-spark" width="240" height="28"></canvas><span class="twin-v" id="t-pwr">+14.2 kW</span></div>
+            <div class="twin-row"><span class="twin-k">speed</span><div class="twin-bar"><i id="t-spd-bar"></i></div><span class="twin-v" id="t-speed">38 km/h</span></div>
+            <div class="twin-row"><span class="twin-k">range</span><span class="twin-v2" id="t-range">142 km</span></div>
+            <div class="twin-row"><span class="twin-k">phase</span><span class="twin-v2" id="t-phase">cruzeiro</span></div>
+          </div>
+          <div class="twin-status"><span class="dot-live"></span> MQTT ● OPC UA ● BaSyx — <span data-i18n="twin.online">online</span></div>
         </div>
       </div>
     </section>
@@ -538,7 +565,7 @@
           <p class="line"><span class="p10k-seg">~</span><span class="p10k-arrow">❯</span> <span data-i18n="contact.cmd">cat contato.txt</span></p>
           <ul class="contact-list">
             <li><span class="ck">github</span><a href="https://github.com/cawzkf" target="_blank" rel="noopener">github.com/cawzkf</a></li>
-            <li><span class="ck">email</span><a href="mailto:camilafelixdosreis@gmail.com">camilafelixdosreis@gmail.com</a></li>
+            <li><span class="ck">email</span><button class="reveal-email" id="reveal-email" data-u="camilafelixdosreis" data-d="gmail.com" data-i18n="contact.showmail">mostrar e-mail ▸</button></li>
             <li><span class="ck">lattes</span><a href="http://lattes.cnpq.br/4899528348009614" target="_blank" rel="noopener">lattes.cnpq.br/4899528348009614</a></li>
             <li><span class="ck">local</span><span>Manaus / AM · Brasil</span></li>
           </ul>
@@ -556,6 +583,14 @@
     <span class="footer-cat" title="meow">ฅ^•﹌•^ฅ</span>
   </footer>
 
+  <div class="cat-walk" aria-hidden="true">
+    <svg viewBox="0 0 64 82" width="42" height="54">
+      <path class="cat-tail" d="M50 72 C66 70 64 50 56 49"/>
+      <path class="cat-body" d="M13 80 C6 62 7 40 15 23 L9 6 C9 3 12 2 14 5 L23 15 C28 12 36 12 41 15 L50 5 C52 2 55 3 55 6 L49 23 C57 40 58 62 51 80 Z"/>
+      <ellipse class="cat-eye" cx="25" cy="35" rx="3" ry="4.3"/>
+      <ellipse class="cat-eye" cx="39" cy="35" rx="3" ry="4.3"/>
+    </svg>
+  </div>
   <a class="cat-corner" href="#top" aria-label="voltar ao topo" title="meow ~">
     <svg viewBox="0 0 64 82" width="56" height="72">
       <path class="cat-tail" d="M50 72 C66 70 64 50 56 49"/>
@@ -565,5 +600,6 @@
     </svg>
   </a>
   <script src="script.js"></script>
+  <script data-goatcounter="https://cawzkf.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
