@@ -138,7 +138,7 @@ function runBoot() {
   const boot = document.getElementById('boot');
   const log = document.getElementById('boot-log');
   // skip boot if reduced motion
-  if (sessionStorage.getItem('cps_booted') || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     boot.classList.add('done'); startHero(); return;
   }
   let i = 0;
@@ -148,7 +148,7 @@ function runBoot() {
       i++;
       setTimeout(tick, 230 + Math.random() * 180);
     } else {
-      setTimeout(() => { boot.classList.add('done'); sessionStorage.setItem('cps_booted','1'); startHero(); }, 520);
+      setTimeout(() => { boot.classList.add('done'); startHero(); }, 520);
     }
   };
   tick();
@@ -202,49 +202,6 @@ function initReveal() {
   document.querySelectorAll('.section').forEach(s => obs.observe(s));
 }
 
-/* ---------- Hero role rotator ---------- */
-const ROLE_PHRASES = {
-  pt: ['Engenheira de Software · CPS', 'Gêmeos Digitais & Indústria 4.0', 'Tech Lead @ Mach Force', 'P&D @ Cyberlabs — UEA'],
-  en: ['Software Engineer · CPS', 'Digital Twins & Industry 4.0', 'Tech Lead @ Mach Force', 'R&D @ Cyberlabs — UEA'],
-};
-function initRole() {
-  const el = document.querySelector('#hero-role .role-text');
-  if (!el) return;
-  let i = 0;
-  const set = () => { el.textContent = ROLE_PHRASES[currentLang][i % ROLE_PHRASES[currentLang].length]; };
-  set();
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  setInterval(() => {
-    el.style.opacity = '0';
-    setTimeout(() => { i++; set(); el.style.opacity = '1'; }, 320);
-  }, 2900);
-}
-
-/* ---------- Scroll-spy nav ---------- */
-function initSpy() {
-  const links = Array.from(document.querySelectorAll('.nav a'));
-  const map = {};
-  links.forEach(a => { const id = (a.getAttribute('href') || '').slice(1); if (id) map[id] = a; });
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting && map[e.target.id]) {
-        links.forEach(l => l.classList.remove('active'));
-        map[e.target.id].classList.add('active');
-      }
-    });
-  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-  document.querySelectorAll('section[id]').forEach(sec => obs.observe(sec));
-}
-
-/* ---------- Mobile menu ---------- */
-function initMenu() {
-  const btn = document.getElementById('nav-toggle');
-  const nav = document.getElementById('primary-nav');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', () => nav.classList.toggle('open'));
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
-}
-
 /* ---------- Init ---------- */
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('year').textContent = '2026';
@@ -254,8 +211,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initReveal();
   initAas();
   initClock();
-  initRole();
-  initSpy();
-  initMenu();
   runBoot();
 });
