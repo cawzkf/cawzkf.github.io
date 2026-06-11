@@ -7,3 +7,5 @@ Thumbs.db
 # Temp
 _patch.py
 *.tmp
+_*.sh
+_*.py
