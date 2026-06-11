@@ -421,28 +421,3 @@ section[id] { scroll-margin-top: 76px; }
   .cat-corner { bottom: 10px; right: 10px; opacity: .82; }
   .cat-corner svg { width: 46px; height: 60px; }
 }
-
-/* reveal email */
-.reveal-email { background: transparent; border: 1px solid var(--border-2); border-radius: 4px; color: var(--green); font-family: var(--mono); font-size: .85rem; padding: .15rem .55rem; cursor: pointer; transition: box-shadow .15s, color .15s; }
-.reveal-email:hover { box-shadow: var(--glow); }
-.reveal-email-link { color: var(--green-dim); font-family: var(--mono); }
-
-/* ---------- twin telemetry ---------- */
-.twin-window { max-width: 560px; }
-.twin-grid { display: flex; flex-direction: column; gap: .6rem; }
-.twin-row { display: flex; align-items: center; gap: .8rem; font-family: var(--mono); font-size: .85rem; }
-.twin-k { color: var(--cyan); width: 58px; flex-shrink: 0; }
-.twin-k::after { content: ":"; color: var(--text-dim); }
-.twin-bar { flex: 1; height: 10px; background: #0f0f0f; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; }
-.twin-bar i { display: block; height: 100%; width: 72%; background: linear-gradient(90deg, var(--green-dim), var(--green)); box-shadow: var(--glow); transition: width .5s ease; }
-.twin-v { color: var(--text); min-width: 82px; text-align: right; }
-.twin-v2 { color: var(--amber); }
-#t-spark { flex: 1; height: 26px; width: 100%; }
-.twin-status { margin-top: 1.1rem; font-family: var(--mono); font-size: .74rem; color: var(--text-dim); display: flex; align-items: center; gap: .5rem; }
-
-/* ---------- walking cat ---------- */
-.cat-walk { position: fixed; bottom: 6px; left: 0; z-index: 40; pointer-events: none; opacity: .85; animation: catwalk 30s linear infinite; }
-.cat-walk svg { animation: catbob .5s ease-in-out infinite; }
-@keyframes catwalk { 0% { transform: translateX(-90px); } 22% { transform: translateX(110vw); } 100% { transform: translateX(110vw); } }
-@keyframes catbob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
-@media (prefers-reduced-motion: reduce) { .cat-walk { display: none; } }

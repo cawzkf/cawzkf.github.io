@@ -1,45 +1,48 @@
-# Portfólio — Camila Félix dos Reis
+# Portfólio — Camila Felix dos Reis
 
-Site pessoal com estética **terminal / Windows Terminal + Powerlevel10k**, dark, bilíngue (PT/EN).
-Engenheira de Software · Sistemas Ciberfísicos · Gêmeos Digitais · AAS/OPC UA.
+Portfólio pessoal com estética terminal/console, dark, bilíngue (PT/EN).
+Sem build, sem dependências — apenas `index.html`, `styles.css` e `script.js`.
 
-🔗 **No ar:** https://cawzkf.github.io
-
-## Destaques
-- Boot sequence + prompt `~ ❯` com relógio ao vivo
-- **Você como um AAS** — árvore interativa de submodelos (Asset Administration Shell)
-- Timeline de experiência, projetos, stack, certificações e idiomas
-- Paleta idêntica ao terminal (Color Scheme 17), bilíngue PT/EN
-- Página 404 temática, preview social (Open Graph) e os gatinhos pretos 🐈‍⬛
-
-## Estrutura
-```
-index.html    estrutura + conteúdo
-styles.css    tema terminal dark
-script.js     boot, i18n PT/EN, AAS, scroll-spy, relógio, etc.
-cv.html       currículo (versão imprimível)
-404.html      página de erro temática
-camila.jpeg   foto
-```
+## Stack do site
+- HTML + CSS puro (sem framework)
+- JavaScript vanilla (boot sequence, efeito de digitação, i18n PT/EN, scroll reveal)
+- Fontes: JetBrains Mono + Space Grotesk (Google Fonts)
 
 ## Rodar localmente
+Abra o `index.html` direto no navegador, ou suba um servidor estático:
+
 ```bash
-python3 -m http.server 8080   # abra http://localhost:8080
+# Python
+python3 -m http.server 8080
+# depois abra http://localhost:8080
+
+# ou Node
+npx serve .
 ```
 
-## Atualizar o site (deploy)
-O SSH já está configurado, então é só commitar e dar push:
+## Publicar no GitHub Pages
+1. Crie um repositório (ex.: `cawzkf.github.io` para virar a raiz do seu domínio,
+   ou qualquer nome, ex.: `portfolio`).
+2. Suba os arquivos:
+
 ```bash
-git add -A
-git commit -m "sua mudança"
-git push
+cd portfolio
+git init
+git add .
+git commit -m "portfolio: site inicial"
+git branch -M main
+git remote add origin https://github.com/cawzkf/cawzkf.github.io.git
+git push -u origin main
 ```
-Em ~1 min o GitHub Pages atualiza sozinho (repositório `cawzkf.github.io` publica do branch `main`).
+
+3. No GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**,
+   selecione `main` / `root` e salve.
+4. Em ~1 min o site fica em:
+   - `https://cawzkf.github.io` (se o repo for `cawzkf.github.io`)
+   - `https://cawzkf.github.io/portfolio` (se o repo tiver outro nome)
 
 ## Editar conteúdo
-- **Textos PT/EN:** objeto `I18N` em `script.js` + atributos `data-i18n` no HTML
-- **Projetos:** blocos `<article class="project">` no `index.html`
-- **Cores:** variáveis CSS em `:root` no topo de `styles.css`
-
----
-Contato: [LinkedIn](https://www.linkedin.com/in/camila-felix-dos-reis) · [GitHub](https://github.com/cawzkf) · [Lattes](http://lattes.cnpq.br/4899528348009614)
+- **Textos PT/EN**: ficam no objeto `I18N` em `script.js` e nos atributos `data-i18n` do `index.html`.
+- **Projetos**: blocos `<article class="project">` no `index.html`.
+- **Cores**: variáveis CSS em `:root` no topo de `styles.css` (`--green`, `--bg`, etc).
+- **Boot sequence**: array `bootLines` em `script.js`.

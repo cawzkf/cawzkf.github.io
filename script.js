@@ -53,8 +53,7 @@ const I18N = {
     'proj.gds.d': 'Prova de conceito de Global Discovery Server OPC UA com node-opcua e open62541, incluindo gateway-api e simulador AAS — base para gestão de certificados e descoberta de endpoints em redes industriais.',
     'proj.pex.d': 'Jogo "Par ou Ímpar" controlado por gestos de mão usando visão computacional — reconhecimento em tempo real com Flask, OpenCV e MediaPipe.',
     'stack.title': 'stack',
-    'twin.title': 'telemetria · digital twin', 'twin.online': 'online',
-    'contact.title': 'contato', 'contact.cmd': 'cat contato.txt', 'contact.showmail': 'mostrar e-mail ▸',
+    'contact.title': 'contato', 'contact.cmd': 'cat contato.txt',
     'footer.built': 'construído com terminal, café e OPC UA',
   },
   en: {
@@ -106,8 +105,7 @@ const I18N = {
     'proj.gds.d': 'Proof of concept of an OPC UA Global Discovery Server with node-opcua and open62541, including a gateway-api and an AAS simulator — a basis for certificate management and endpoint discovery in industrial networks.',
     'proj.pex.d': '"Odd or Even" game controlled by hand gestures using computer vision — real-time recognition with Flask, OpenCV and MediaPipe.',
     'stack.title': 'stack',
-    'twin.title': 'telemetry · digital twin', 'twin.online': 'online',
-    'contact.title': 'contact', 'contact.cmd': 'cat contact.txt', 'contact.showmail': 'show e-mail ▸',
+    'contact.title': 'contact', 'contact.cmd': 'cat contact.txt',
     'footer.built': 'built with a terminal, coffee and OPC UA',
   }
 };
@@ -247,74 +245,6 @@ function initMenu() {
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
 }
 
-/* ---------- Reveal email (anti-spam) ---------- */
-function initEmail() {
-  const b = document.getElementById('reveal-email');
-  if (!b) return;
-  b.addEventListener('click', () => {
-    const mail = b.dataset.u + '@' + b.dataset.d;
-    const a = document.createElement('a');
-    a.href = 'mailto:' + mail;
-    a.textContent = mail;
-    a.className = 'reveal-email-link';
-    b.replaceWith(a);
-    try { navigator.clipboard.writeText(mail); } catch (e) {}
-  });
-}
-
-/* ---------- Live twin telemetry ---------- */
-function initTwin() {
-  const socBar = document.getElementById('t-soc-bar');
-  const spdBar = document.getElementById('t-spd-bar');
-  const socV = document.getElementById('t-soc');
-  const pwrV = document.getElementById('t-pwr');
-  const spdV = document.getElementById('t-speed');
-  const rngV = document.getElementById('t-range');
-  const phaseV = document.getElementById('t-phase');
-  const cv = document.getElementById('t-spark');
-  if (!socBar || !cv) return;
-  const ctx = cv.getContext('2d');
-  cv.width = cv.clientWidth || 240; cv.height = cv.clientHeight || 26;
-  let soc = 72.4, speed = 38, t = 0;
-  const hist = [];
-  const PT = currentLang === 'en'
-    ? { a: 'acceleration', c: 'cruise', b: 'regen braking' }
-    : { a: 'aceleração', c: 'cruzeiro', b: 'frenagem regen.' };
-  function step() {
-    t++;
-    const cyc = t % 24;
-    let power, phase;
-    if (cyc < 8) { phase = PT.a; power = 8 + Math.sin(t * 0.7) * 3 + 6; speed = Math.min(96, speed + 1.6); }
-    else if (cyc < 16) { phase = PT.c; power = 3 + Math.sin(t * 0.5) * 2; speed += Math.sin(t * 0.3); }
-    else { phase = PT.b; power = -6 + Math.sin(t * 0.6) * 2; speed = Math.max(0, speed - 2.2); }
-    soc = Math.max(8, Math.min(100, soc - power * 0.012));
-    const range = Math.round(soc * 2.0);
-    socBar.style.width = soc.toFixed(0) + '%';
-    socV.textContent = soc.toFixed(1) + '%';
-    pwrV.textContent = (power >= 0 ? '+' : '') + power.toFixed(1) + ' kW';
-    pwrV.style.color = power >= 0 ? 'var(--amber)' : 'var(--green)';
-    if (spdBar) spdBar.style.width = Math.min(100, speed) + '%';
-    spdV.textContent = Math.round(speed) + ' km/h';
-    rngV.textContent = range + ' km';
-    phaseV.textContent = phase;
-    hist.push(power); if (hist.length > 60) hist.shift();
-    drawSpark();
-  }
-  function drawSpark() {
-    const w = cv.width, h = cv.height, max = 16, min = -10;
-    ctx.clearRect(0, 0, w, h);
-    ctx.beginPath();
-    hist.forEach((p, i) => {
-      const x = (i / 59) * w, y = h - ((p - min) / (max - min)) * h;
-      i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
-    });
-    ctx.strokeStyle = '#16C60C'; ctx.lineWidth = 1.5; ctx.stroke();
-  }
-  step();
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  setInterval(step, 650);
-}
-
 /* ---------- Init ---------- */
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('year').textContent = '2026';
@@ -327,7 +257,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initRole();
   initSpy();
   initMenu();
-  initEmail();
-  initTwin();
   runBoot();
 });
