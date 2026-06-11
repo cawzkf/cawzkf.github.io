@@ -1,0 +1,9 @@
+# OS / editor cruft
+*:Zone.Identifier
+.DS_Store
+Thumbs.db
+*.log
+
+# Temp
+_patch.py
+*.tmp

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camila Felix dos Reis — Cyber-Physical Systems</title>
+  <meta name="description" content="Camila Felix dos Reis — Pesquisadora em Arquiteturas de Sistemas Ciberfísicos, Gêmeos Digitais, AAS/OPC UA e IA em edge." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2316C60C'>%3E</text></svg>" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- ===== BOOT SEQUENCE ===== -->
+  <div id="boot" class="boot">
+    <pre class="boot-log" id="boot-log"></pre>
+  </div>
+
+  <!-- ===== TOP BAR ===== -->
+  <header class="topbar">
+    <a href="#top" class="brand">
+      <span class="prompt">camila@cps</span><span class="sep">:</span><span class="path">~</span><span class="cursor-static">$</span>
+    </a>
+    <nav class="nav">
+      <a href="#about" data-i18n="nav.about">sobre</a>
+      <a href="#aas" data-i18n="nav.aas">aas</a>
+      <a href="#experience" data-i18n="nav.experience">experiência</a>
+      <a href="#research" data-i18n="nav.research">pesquisa</a>
+      <a href="#projects" data-i18n="nav.projects">projetos</a>
+      <a href="#stack" data-i18n="nav.stack">stack</a>
+      <a href="#contact" data-i18n="nav.contact">contato</a>
+    </nav>
+    <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+      <span class="lang-opt active" data-lang="pt">PT</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-opt" data-lang="en">EN</span>
+    </button>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="window hero-window">
+        <div class="window-bar">
+          <span class="wb-tab"><span class="wb-tname">~/whoami</span><span class="wb-tx">✕</span></span>
+          <span class="wb-add">＋</span><span class="wb-chev">⌄</span>
+          <span class="wb-gap"></span>
+          <span class="wb-ctl"><span class="c-min">﹣</span><span class="c-max">▢</span><span class="c-close">✕</span></span>
+        </div>
+        <div class="window-body">
+          <p class="line prompt-line"><span class="p10k-seg">~</span><span class="p10k-arrow">❯</span> <span class="typed" id="hero-cmd"></span><span class="cursor"></span><span class="p10k-clock" id="clock">00:00:00</span></p>
+          <div class="hero-output" id="hero-output">
+            <div class="hero-avatar">
+              <img src="camila.jpeg" alt="Camila Félix dos Reis" loading="lazy" />
+              <span class="avatar-tag">./camila.jpeg</span>
+            </div>
+            <h1 class="hero-name">Camila Félix dos Reis</h1>
+            <p class="hero-role" data-i18n="hero.role">Engenharia de Computação · Digital Twin &amp; CPS · Embedded/Backend · Tech Lead @ Mach Force · P&amp;D @ UEA</p>
+            <p class="hero-desc" data-i18n="hero.desc">
+              Projeto arquiteturas para integração físico-digital — gêmeos digitais, representação
+              semântica de ativos industriais (AAS/OPC UA) e inteligência computacional em
+              ambientes com restrição de infraestrutura.
+            </p>
+            <div class="hero-tags">
+              <span class="tag">AAS</span>
+              <span class="tag">OPC UA</span>
+              <span class="tag">RAMI 4.0</span>
+              <span class="tag">Digital Twin</span>
+              <span class="tag">Edge AI</span>
+              <span class="tag">MQTT</span>
+              <span class="tag">Shell Eco-marathon</span>
+            </div>
+            <div class="hero-actions">
+              <a class="btn primary" href="#projects" data-i18n="hero.cta1">ver projetos →</a>
+              <a class="btn" href="https://www.linkedin.com/in/camila-felix-dos-reis" target="_blank" rel="noopener">linkedin</a>
+              <a class="btn" href="http://lattes.cnpq.br/4899528348009614" target="_blank" rel="noopener" data-i18n="hero.cta2">currículo lattes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section">
+      <h2 class="section-title"><span class="hash">#</span> <span data-i18n="about.title">sobre</span></h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p data-i18n="about.p1">
+            Sou estudante de Engenharia de Computação na Faculdade Matias Machline (FMM), em Manaus.
+            Minha pesquisa concentra-se em <strong>arquiteturas de sistemas ciberfísicos distribuídos</strong>,
+            com ênfase em representação semântica de ativos industriais e processamento local
+            (edge) em ambientes com conectividade limitada.
+          </p>
+          <p data-i18n="about.p2">
+            Investigo como integrar o mundo físico e o digital de forma escalável e interoperável —
+            avaliando desempenho arquitetural, padrões da Indústria 4.0 e suporte à decisão baseado
+            em IA. Uso simulação veicular e sistemas inteligentes de aquicultura como estudos de caso
+            para validação experimental.
+          </p>
+          <p class="about-meta">
+            <span class="kv"><span class="k">local</span> <span class="v">Manaus / AM · Brasil</span></span>
+            <span class="kv"><span class="k">foco</span> <span class="v" data-i18n="about.focus">CPS · Digital Twins · Edge AI</span></span>
+            <span class="kv"><span class="k">lattes</span> <span class="v">4899528348009614</span></span>
+          </p>
+        </div>
+        <div class="window about-window">
+          <div class="window-bar">
+            <span class="wb-tab"><span class="wb-tname">~/status.json</span><span class="wb-tx">✕</span></span>
+            <span class="wb-add">＋</span><span class="wb-chev">⌄</span>
+            <span class="wb-gap"></span>
+            <span class="wb-ctl"><span class="c-min">﹣</span><span class="c-max">▢</span><span class="c-close">✕</span></span>
+          </div>
+          <div class="window-body mono">
+<pre class="json"><span class="brace">{</span>
+  <span class="key">"role"</span>: <span class="str" data-i18n="json.role">"Engenheira de Software · CPS"</span>,
+  <span class="key">"degree"</span>: <span class="str">"Eng. Computação (FMM)"</span>,
+  <span class="key">"since"</span>: <span class="num">2024</span>,
+  <span class="key">"areas"</span>: <span class="brace">[</span>
+    <span class="str">"Cyber-Physical Systems"</span>,
+    <span class="str">"Digital Twins"</span>,
+    <span class="str">"Industrial Semantics"</span>,
+    <span class="str">"Edge / Offline AI"</span>
+  <span class="brace">]</span>,
+  <span class="key">"status"</span>: <span class="str ok" data-i18n="json.status">"pesquisando"</span>
+<span class="brace">}</span></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== AAS (asset administration shell) ===== -->
+    <section id="aas" class="section">
+      <h2 class="section-title"><span class="hash">#</span> <span data-i18n="aas.title">eu como um ativo · AAS</span></h2>
+      <p class="section-sub">$ basyx shell get Camila_Felix_dos_Reis --tree</p>
+
+      <div class="window aas-window">
+        <div class="window-bar">
+          <span class="wb-tab"><span class="wb-tname">~/aas/Camila_Felix_dos_Reis.aasx</span><span class="wb-tx">✕</span></span>
+          <span class="wb-add">＋</span><span class="wb-chev">⌄</span>
+          <span class="wb-gap"></span>
+          <span class="wb-ctl"><span class="c-min">﹣</span><span class="c-max">▢</span><span class="c-close">✕</span></span>
+        </div>
+        <div class="window-body mono aas">
+          <div class="aas-root">
+            <span class="aas-kw">AAS</span> <span class="aas-asset">Camila_Felix_dos_Reis</span>
+            <span class="aas-id">[ id: 4899528348009614 ]</span>
+            <span class="aas-status"><span class="dot-live"></span><span data-i18n="aas.online">online</span></span>
+          </div>
+          <p class="aas-hint" data-i18n="aas.hint">// clique nos submodelos para expandir</p>
+
+          <div class="aas-tree">
+
+            <div class="aas-node open">
+              <button class="aas-toggle"><span class="aas-caret">▸</span> <span class="aas-sm">Submodel</span> <span class="aas-smname">Identification</span></button>
+              <div class="aas-children">
+                <div class="aas-prop"><span class="aas-k">idShort</span><span class="aas-v">CamilaFelixDosReis</span></div>
+                <div class="aas-prop"><span class="aas-k">role</span><span class="aas-v str" data-i18n="aas.role">"Engenheira de Software · CPS"</span></div>
+                <div class="aas-prop"><span class="aas-k">location</span><span class="aas-v str">"Manaus / AM · BR"</span></div>
+                <div class="aas-prop"><span class="aas-k">lattesId</span><span class="aas-v num">4899528348009614</span></div>
+              </div>
+            </div>
+
+            <div class="aas-node">
+              <button class="aas-toggle"><span class="aas-caret">▸</span> <span class="aas-sm">Submodel</span> <span class="aas-smname">TechnicalData</span></button>
+              <div class="aas-children">
+                <div class="aas-prop"><span class="aas-k">degree</span><span class="aas-v str">"Eng. Computação — FMM"</span></div>
+                <div class="aas-prop"><span class="aas-k">since</span><span class="aas-v num">2024</span></div>
+                <div class="aas-prop"><span class="aas-k">languages</span><span class="aas-v str" data-i18n="aas.langs">"PT (nativo) · EN (profissional) · ES (básico)"</span></div>
+                <div class="aas-prop"><span class="aas-k">stack[]</span><span class="aas-v">Python · JS/TS · Kotlin · C/C++ · C#</span></div>
+              </div>
+            </div>
+
+            <div class="aas-node">
+              <button class="aas-toggle"><span class="aas-caret">▸</span> <span class="aas-sm">Submodel</span> <span class="aas-smname">Skills</span></button>
+              <div class="aas-children">
+                <div class="aas-prop"><span class="aas-k">cps[]</span><span class="aas-v">OPC UA · AAS · Eclipse BaSyx · MQTT · RAMI 4.0</span></div>
+                <div class="aas-prop"><span class="aas-k">ai[]</span><span class="aas-v">Random Forest · Genetic Algorithm · OpenCV</span></div>
+                <div class="aas-prop"><span class="aas-k">infra[]</span><span class="aas-v">Docker · AWS · CARLA · Linux</span></div>
+              </div>
+            </div>
+
+            <div class="aas-node">
+              <button class="aas-toggle"><span class="aas-caret">▸</span> <span class="aas-sm">Submodel</span> <span class="aas-smname">Projects</span> <span class="aas-ref" data-i18n="aas.refs">→ referências</span></button>
+              <div class="aas-children">
+                <div class="aas-prop"><span class="aas-k">ref</span><a class="aas-v link" href="https://github.com/cawzkf/interactive-energy-digital-twin-carla" target="_blank" rel="noopener">DigitalTwin_CARLA</a></div>
+                <div class="aas-prop"><span class="aas-k">ref</span><a class="aas-v link" href="https://github.com/cawzkf/aas" target="_blank" rel="noopener">Piscis_Aquaculture</a></div>
+                <div class="aas-prop"><span class="aas-k">ref</span><a class="aas-v link" href="https://github.com/cawzkf/caica" target="_blank" rel="noopener">Caica_CloudEdge</a></div>
+                <div class="aas-prop"><span class="aas-k">ref</span><a class="aas-v link" href="https://github.com/cawzkf/ua-mqtt-integration" target="_blank" rel="noopener">UA_MQTT_Bridge</a></div>
+              </div>
+            </div>
+
+            <div class="aas-node">
+              <button class="aas-toggle"><span class="aas-caret">▸</span> <span class="aas-sm">Submodel</span> <span class="aas-smname">OperationalState</span></button>
+              <div class="aas-children">
+                <div class="aas-prop"><span class="aas-k">status</span><span class="aas-v str ok" data-i18n="aas.status">"pesquisando"</span></div>
+                <div class="aas-prop"><span class="aas-k">role</span><span class="aas-v str">"Tech Lead @ Mach Force"</span></div>
+                <div class="aas-prop"><span class="aas-k">availability</span><span class="aas-v str ok" data-i18n="aas.avail">"aberta a pesquisa e colaboração"</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" class="section">
+      <h2 class="section-title"><span class="hash">#</span> <span data-i18n="exp.title">experiência</span></h2>
+      <p class="section-sub" data-i18n="exp.sub">$ git log --author="Camila" --oneline</p>
+
+      <div class="timeline">
+
+        <article class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <h3>Mach Force — Shell Eco-marathon</h3>
+              <span class="tl-date">fev 2026 — <span data-i18n="exp.now">atual</span></span>
+            </div>
+            <span class="tl-role" data-i18n="exp.machforce.r">Líder Técnica (Hardware &amp; Software)</span>
+            <p data-i18n="exp.machforce.d">
+              Lidero as equipes de hardware e software de uma equipe estudantil que compete na Shell
+              Eco-marathon. Defino a arquitetura geral e a integração entre aquisição embarcada e backend,
+              conduzindo todo o pipeline de telemetria — da leitura dos sensores no veículo ao processamento,
+              validação e análise energética em tempo real, com persistência de séries temporais e dashboards
+              para decisão estratégica durante a corrida.
+            </p>
+            <div class="tl-stack"><span>Embedded</span><span>Telemetria</span><span>Tempo real</span><span>Backend</span><span>Dashboards</span></div>
+          </div>
+        </article>
+
+        <article class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <h3>Cyberlabs — UEA · Sistemas Ciberfísicos</h3>
+              <span class="tl-date">ago 2025 — <span data-i18n="exp.now">atual</span></span>
+            </div>
+            <span class="tl-role" data-i18n="exp.uea.r">Engenheira de Software · P&amp;D</span>
+            <p data-i18n="exp.uea.d">
+              Cyberlabs — Centro de Desenvolvimento de Sistemas Ciberfísicos da UEA. Engenharia de
+              software, drivers e integrações que conectam o hardware ao software em ambientes reais —
+              representação digital de ativos físicos, arquiteturas offline-first e integração via
+              OPC UA / AAS e MQTT.
+            </p>
+            <div class="tl-stack"><span>OPC UA</span><span>AAS</span><span>MQTT</span><span>Drivers</span><span>Integrações</span><span>Digital Twin</span></div>
+          </div>
+        </article>
+
+        <article class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <h3>TOTVS Norte</h3>
+              <span class="tl-date">set 2024 — jun 2025</span>
+            </div>
+            <span class="tl-role" data-i18n="exp.totvs.r">Analista de Suporte Técnico</span>
+            <p data-i18n="exp.totvs.d">
+              Extração e manipulação de dados para relatórios gerenciais; criação e automação de
+              relatórios SQL (CTEs, INSERT, UPDATE); validação e análise de informações para garantir
+              precisão e integridade dos processos; otimização de processos internos e suporte técnico à equipe.
+            </p>
+            <div class="tl-stack"><span>SQL</span><span>CTEs</span><span>Automação</span><span>Análise de dados</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== RESEARCH ===== -->
+    <section id="research" class="section">
+      <h2 class="section-title"><span class="hash">#</span> <span data-i18n="research.title">áreas de pesquisa</span></h2>
+      <div class="research-grid">
+        <article class="research-card">
+          <div class="rc-index">01</div>
+          <h3 data-i18n="research.1.t">Sistemas Ciberfísicos</h3>
+          <p data-i18n="research.1.d">Arquiteturas offline-first integrando camada física de sensoriamento, comunicação e representação semântica do ativo.</p>
+          <span class="rc-area">Eng. Elétrica · Arquitetura de Sistemas</span>
+        </article>
+        <article class="research-card">
+          <div class="rc-index">02</div>
+          <h3 data-i18n="research.2.t">Gêmeos Digitais</h3>
+          <p data-i18n="research.2.d">Modelagem físico-digital estruturada segundo RAMI 4.0, com sincronização de estado em tempo real e estimativa energética.</p>
+          <span class="rc-area">Automação · Controle</span>
+        </article>
+        <article class="research-card">
+          <div class="rc-index">03</div>
+          <h3 data-i18n="research.3.t">Semântica Industrial</h3>
+          <p data-i18n="research.3.d">Representação de ativos via Asset Administration Shell (AAS) e OPC UA para interoperabilidade entre sistemas.</p>
+          <span class="rc-area">Instrumentação · Sensores</span>
+        </article>
+        <article class="research-card">
+          <div class="rc-index">04</div>
+          <h3 data-i18n="research.4.t">IA em Edge</h3>
+          <p data-i18n="research.4.d">Modelos preditivos leves (Random Forest, busca heurística) para suporte à decisão local em infraestrutura restrita.</p>
+          <span class="rc-area">Processos Elétricos e Industriais</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="section">
+      <h2 class="section-title"><span class="hash">#</span> <span data-i18n="projects.title">projetos</span></h2>
+      <p class="section-sub" data-i18n="projects.sub">$ ls ~/projetos --sort=relevance</p>
+
+      <div class="projects">
+
+        <article class="project featured">
+          <div class="proj-head">
+            <span class="proj-id">001</span>
+            <h3>Digital Twin Energético Veicular — CARLA</h3>
+            <span class="proj-status wip" data-i18n="proj.wip">em andamento</span>
+          </div>
+          <p data-i18n="proj.carla.d">
+            Protótipo de gêmeo digital energético veicular estruturado por RAMI 4.0. Integra modelo
+            dinâmico longitudinal e modelo de bateria para estimar consumo e regeneração em tempo real
+            no simulador CARLA. Arquitetura em camadas (Integração, Funcional, Informação, Comunicação)
+            com AAS sincronizada via Eclipse BaSyx, publicação MQTT e servidor OPC UA. Validado por 29
+            testes unitários e verificação analítica com erro nulo.
+          </p>
+          <div class="proj-stack">
+            <span>Python</span><span>CARLA</span><span>OPC UA (asyncua)</span><span>MQTT / Mosquitto</span><span>Eclipse BaSyx v2</span><span>AAS</span><span>RAMI 4.0</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/cawzkf/interactive-energy-digital-twin-carla" target="_blank" rel="noopener">core →</a>
+            <a href="https://github.com/cawzkf/marchforce-dashboard" target="_blank" rel="noopener">dashboard (React) →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="proj-head">
+            <span class="proj-id">002</span>
+            <h3>Piscis — CPS Offline · Aquicultura</h3>
+            <span class="proj-status wip" data-i18n="proj.wip">em andamento</span>
+          </div>
+          <p data-i18n="proj.aqua.d">
+            Piscis — arquitetura de sistema ciberfísico offline-first para aquicultura: sensoriamento embarcado (ESP32 + sensores de qualidade da água),
+            comunicação MQTT e representação semântica via OPC UA. Inclui modelos preditivos locais
+            (Random Forest) e busca heurística por Algoritmo Genético para apoio ao manejo alimentar.
+            Avalia desempenho, latência e comportamento em conectividade limitada. Open source.
+          </p>
+          <div class="proj-stack">
+            <span>ESP32</span><span>Sensores</span><span>Python</span><span>OPC UA</span><span>MQTT</span><span>Random Forest</span><span>Genetic Algorithm</span><span>Edge</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/cawzkf/aas" target="_blank" rel="noopener">repo →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="proj-head">
+            <span class="proj-id">003</span>
+            <h3>Caiçá — CloudEdge / Plantas Medicinais</h3>
+            <span class="proj-status wip" data-i18n="proj.wip">em andamento</span>
+          </div>
+          <p data-i18n="proj.caica.d">
+            App móvel para identificação automatizada de plantas medicinais indígenas. Arquitetura
+            distribuída com visão computacional em nuvem (AWS S3, Lambda, Rekognition) e banco
+            etnobotânico, evoluindo para arquitetura híbrida com inferência local e operação offline.
+            Foco em democratizar o acesso ao conhecimento tradicional.
+          </p>
+          <div class="proj-stack">
+            <span>Kotlin</span><span>AWS S3</span><span>Lambda</span><span>Rekognition</span><span>Computer Vision</span><span>CloudEdge</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/cawzkf/caica" target="_blank" rel="noopener">repo →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="proj-head">
+            <span class="proj-id">004</span>
+            <h3>Monitoramento de Consumo de Energia</h3>
+            <span class="proj-status award" data-i18n="proj.award">2º lugar · Feira de Eng.</span>
+          </div>
+          <p data-i18n="proj.energy.d">
+            Sistema embarcado de monitoramento de consumo de energia em tempo real: aquisição com
+            ESP8266, persistência na nuvem (Firebase) e visualização em app Android. Premiado com
+            2º lugar na Feira de Engenharia da FMM.
+          </p>
+          <div class="proj-stack">
+            <span>ESP8266</span><span>Firebase</span><span>Android / Kotlin</span><span>IoT</span><span>Tempo real</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/cawzkf" target="_blank" rel="noopener">github →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="proj-head">
+            <span class="proj-id">005</span>
+            <h3>OPC UA ⇄ MQTT Integration</h3>
+            <span class="proj-status done" data-i18n="proj.done">concluído</span>
+          </div>
+          <p data-i18n="proj.uamqtt.d">
+            Ponte de comunicação industrial integrando os protocolos OPC UA e MQTT, permitindo
+            interoperabilidade entre o chão de fábrica e camadas de informação/nuvem.
+          </p>
+          <div class="proj-stack">
+            <span>Python</span><span>OPC UA</span><span>MQTT</span><span>Industrial IoT</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/cawzkf/ua-mqtt-integration" target="_blank" rel="noopener">repo →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="proj-head">
+            <span class="proj-id">006</span>
+            <h3>GDS — OPC UA Global Discovery</h3>
+            <span class="proj-status done" data-i18n="proj.done">concluído</span>
+          </div>
+          <p data-i18n="proj.gds.d">
+            Prova de conceito de Global Discovery Server OPC UA com node-opcua e open62541, incluindo
+            gateway-api e simulador AAS — base para gestão de certificados e descoberta de endpoints
+            em redes industriais.
+          </p>
+          <div class="proj-stack">
+            <span>Node.js</span><span>open62541</span><span>node-opcua</span><span>Docker</span><span>PKI</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/cawzkf" target="_blank" rel="noopener">github →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="proj-head">
+            <span class="proj-id">007</span>
+            <h3>ProjetoPex — Visão Computacional</h3>
+            <span class="proj-status done" data-i18n="proj.done">concluído</span>
+          </div>
+          <p data-i18n="proj.pex.d">
+            Jogo "Par ou Ímpar" controlado por gestos de mão usando visão computacional —
+            reconhecimento em tempo real com Flask, OpenCV e MediaPipe.
+          </p>
+          <div class="proj-stack">
+            <span>Python</span><span>Flask</span><span>OpenCV</span><span>MediaPipe</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/cawzkf/ProjetoPex" target="_blank" rel="noopener">repo →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== STACK ===== -->
+    <section id="stack" class="section">
+      <h2 class="section-title"><span class="hash">#</span> <span data-i18n="stack.title">stack</span></h2>
+      <div class="stack-grid">
+        <div class="stack-col">
+          <h4>// languages</h4>
+          <ul><li>Python</li><li>JavaScript / TypeScript</li><li>Kotlin</li><li>C / C++</li><li>C# · SQL</li></ul>
+        </div>
+        <div class="stack-col">
+          <h4>// embedded & iot</h4>
+          <ul><li>ESP32 · ESP8266</li><li>Raspberry Pi · Arduino</li><li>MQTT</li><li>OPC UA</li><li>Sensores / telemetria</li></ul>
+        </div>
+        <div class="stack-col">
+          <h4>// cps & industry 4.0</h4>
+          <ul><li>OPC UA (asyncua, open62541)</li><li>Asset Administration Shell</li><li>Eclipse BaSyx</li><li>RAMI 4.0</li></ul>
+        </div>
+        <div class="stack-col">
+          <h4>// data & ai</h4>
+          <ul><li>scikit-learn (Random Forest)</li><li>Genetic Algorithms</li><li>OpenCV / MediaPipe</li><li>AWS Rekognition</li></ul>
+        </div>
+        <div class="stack-col">
+          <h4>// cloud, infra & tools</h4>
+          <ul><li>AWS (Lambda, S3, API GW)</li><li>Firebase</li><li>Docker · CARLA</li><li>React + Vite</li><li>Git · Linux</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXTRAS ===== -->
+    <section id="extras" class="section">
+      <h2 class="section-title"><span class="hash">#</span> <span data-i18n="extras.title">reconhecimentos &amp; idiomas</span></h2>
+      <div class="extras-grid">
+
+        <div class="extra-card">
+          <h4>// <span data-i18n="extras.honors">prêmios</span></h4>
+          <ul>
+            <li data-i18n="extras.honor1">2º lugar — Feira de Engenharia da FMM</li>
+          </ul>
+          <h4 class="mt"><span data-i18n="extras.comp">competências-chave</span></h4>
+          <div class="extra-tags"><span>IDTA</span><span>OPC UA</span><span data-i18n="extras.asset">Gestão de ativos</span></div>
+        </div>
+
+        <div class="extra-card">
+          <h4>// <span data-i18n="extras.certs">certificações</span></h4>
+          <ul class="cert-list">
+            <li><span class="cert-name" data-i18n="extras.c1">Fundamentos da Indústria 4.0 — RAMI 4.0 &amp; AAS</span><span class="cert-meta">UEA · 40h</span></li>
+            <li><span class="cert-name" data-i18n="extras.c2">Introdução à IA: uma Abordagem Prática</span><span class="cert-meta">UNICAMP · 40h</span></li>
+            <li><span class="cert-name" data-i18n="extras.c3">Containers &amp; Docker (Fundamentos + Avançado)</span><span class="cert-meta">UEA · 40h</span></li>
+            <li><span class="cert-name" data-i18n="extras.c4">Desenvolvimento em C# / .NET (APIs REST)</span><span class="cert-meta">UEA · 22h</span></li>
+            <li><span class="cert-name" data-i18n="extras.c5">IA com Orange e Python</span><span class="cert-meta">IoT Week 2024</span></li>
+          </ul>
+        </div>
+
+        <div class="extra-card">
+          <h4>// <span data-i18n="extras.langs">idiomas</span></h4>
+          <ul class="lang-list">
+            <li><span class="lg-name" data-i18n="extras.pt">Português</span><span class="lg-lvl" data-i18n="extras.ptlvl">nativo</span></li>
+            <li><span class="lg-name" data-i18n="extras.en">Inglês</span><span class="lg-lvl" data-i18n="extras.enlvl">profissional limitado</span></li>
+            <li><span class="lg-name" data-i18n="extras.es">Espanhol</span><span class="lg-lvl" data-i18n="extras.eslvl">básico</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section contact">
+      <h2 class="section-title"><span class="hash">#</span> <span data-i18n="contact.title">contato</span></h2>
+      <div class="window contact-window">
+        <div class="window-bar">
+          <span class="wb-tab"><span class="wb-tname">~/contact</span><span class="wb-tx">✕</span></span>
+          <span class="wb-add">＋</span><span class="wb-chev">⌄</span>
+          <span class="wb-gap"></span>
+          <span class="wb-ctl"><span class="c-min">﹣</span><span class="c-max">▢</span><span class="c-close">✕</span></span>
+        </div>
+        <div class="window-body mono">
+          <p class="line"><span class="p10k-seg">~</span><span class="p10k-arrow">❯</span> <span data-i18n="contact.cmd">cat contato.txt</span></p>
+          <ul class="contact-list">
+            <li><span class="ck">github</span><a href="https://github.com/cawzkf" target="_blank" rel="noopener">github.com/cawzkf</a></li>
+            <li><span class="ck">email</span><a href="mailto:camilafelixdosreis@gmail.com">camilafelixdosreis@gmail.com</a></li>
+            <li><span class="ck">lattes</span><a href="http://lattes.cnpq.br/4899528348009614" target="_blank" rel="noopener">lattes.cnpq.br/4899528348009614</a></li>
+            <li><span class="ck">local</span><span>Manaus / AM · Brasil</span></li>
+          </ul>
+          <p class="line muted"><span class="p10k-seg">~</span><span class="p10k-arrow">❯</span> <span class="cursor"></span></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span data-i18n="footer.built">construído com shell & café </span>
+    <span class="foot-sep">·</span>
+    <span>© <span id="year"></span> Camila Félix dos Reis</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
