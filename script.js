@@ -13,7 +13,7 @@ const I18N = {
     'aas.langs': '"PT (nativo) · EN (profissional) · ES (básico) · DE (iniciante)"',
     'aas.refs': '→ referências',
     'aas.status': '"pesquisando"', 'aas.avail': '"aberta a pesquisa e colaboração"',
-    'exp.title': 'experiência', 'exp.sub': '$ git log --author="Camila" --oneline', 'exp.now': 'atual',
+    'exp.title': 'experiência', 'exp.sub': '$ git log --author="Camila" --oneline',
     'exp.machforce.r': 'Líder Técnica (Hardware & Software)',
     'exp.machforce.d': 'Lidero as equipes de hardware e software de uma equipe estudantil que compete na Shell Eco-marathon. Defino a arquitetura geral e a integração entre aquisição embarcada e backend, conduzindo todo o pipeline de telemetria: da leitura dos sensores no veículo ao processamento, validação e análise energética em tempo real, com persistência de séries temporais e dashboards para decisão estratégica durante a corrida.',
     'exp.uea.r': 'Engenharia de Software · P&D',
@@ -46,14 +46,18 @@ const I18N = {
     'projects.title': 'projetos', 'projects.sub': '$ ls ~/projetos --sort=relevance',
     'proj.wip': 'em andamento', 'proj.done': 'concluído', 'proj.award': '2º lugar · Feira de Eng.',
     'proj.energy.d': 'Sistema embarcado de monitoramento de consumo de energia em tempo real: aquisição com ESP8266, persistência na nuvem (Firebase) e visualização em app Android. Premiado com 2º lugar na Feira de Engenharia da FMM.',
-    'proj.carla.d': 'Protótipo de gêmeo digital energético veicular estruturado por RAMI 4.0. Integra modelo dinâmico longitudinal e modelo de bateria para estimar consumo e regeneração em tempo real no simulador CARLA. Arquitetura em camadas (Integração, Funcional, Informação, Comunicação) com AAS sincronizada via Eclipse BaSyx, publicação MQTT e servidor OPC UA. Validado por 29 testes unitários e verificação analítica com erro nulo.',
+    'proj.carla.d': 'Protótipo de gêmeo digital energético veicular estruturado por RAMI 4.0. Integra modelo dinâmico longitudinal e modelo de bateria para estimar consumo e regeneração em tempo real no simulador CARLA. Arquitetura em camadas (Integração, Funcional, Informação, Comunicação) com AAS sincronizada via Eclipse BaSyx, publicação MQTT e servidor OPC UA. Validado por 89 testes unitários e verificação analítica com erro nulo. Latência medida do caminho raw para processed em 248 amostras: 5,7 ms de média e 9,3 ms no p95, sobre passo de simulação de 100 ms.',
     'proj.aqua.d': 'Piscis: arquitetura de sistema ciberfísico offline-first para aquicultura: sensoriamento embarcado (ESP32 + sensores de qualidade da água), comunicação MQTT e representação semântica via OPC UA. Inclui modelos preditivos locais (Random Forest) e busca heurística por Algoritmo Genético para apoio ao manejo alimentar. Avalia desempenho, latência e comportamento em conectividade limitada. Open source.',
     'proj.caica.d': 'App móvel para identificação automatizada de plantas medicinais indígenas. Arquitetura distribuída com visão computacional em nuvem (AWS S3, Lambda, Rekognition) e banco etnobotânico, evoluindo para arquitetura híbrida com inferência local e operação offline. Foco em democratizar o acesso ao conhecimento tradicional.',
     'proj.uamqtt.d': 'Ponte de comunicação industrial integrando os protocolos OPC UA e MQTT, permitindo interoperabilidade entre o chão de fábrica e camadas de informação/nuvem.',
     'proj.gds.d': 'Prova de conceito de Global Discovery Server OPC UA com node-opcua e open62541, incluindo gateway-api e simulador AAS, base para gestão de certificados e descoberta de endpoints em redes industriais.',
     'proj.pex.d': 'Jogo "Par ou Ímpar" controlado por gestos de mão usando visão computacional: reconhecimento em tempo real com Flask, OpenCV e MediaPipe.',
     'stack.title': 'stack',
-    'contact.title': 'contato', 'contact.cmd': 'cat contato.txt',
+    'contact.title': 'contato', 'contact.cmd': 'cat contato.txt', 'contact.reveal': 'clique para revelar',
+    'exp.date1': 'fev 2026 — atual', 'exp.date2': 'ago 2025 — atual', 'exp.date3': 'set 2024 — jun 2025',
+    'tl.telem': 'Telemetria', 'tl.rt': 'Tempo real', 'tl.integ': 'Integrações', 'tl.autom': 'Automação', 'tl.dados': 'Análise de dados',
+    'rc.a1': 'Eng. Elétrica · Arquitetura de Sistemas', 'rc.a2': 'Automação · Controle', 'rc.a3': 'Instrumentação · Sensores', 'rc.a4': 'Processos Elétricos e Industriais',
+    'stk.sens': 'Sensores', 'stk.rt': 'Tempo real', 'stk.senstel': 'Sensores / telemetria',
     'footer.built': 'construído com terminal, café e OPC UA',
   },
   en: {
@@ -65,7 +69,7 @@ const I18N = {
     'aas.langs': '"PT (native) · EN (professional) · ES (basic) · DE (beginner)"',
     'aas.refs': '→ references',
     'aas.status': '"researching"', 'aas.avail': '"open to research & collaboration"',
-    'exp.title': 'experience', 'exp.sub': '$ git log --author="Camila" --oneline', 'exp.now': 'present',
+    'exp.title': 'experience', 'exp.sub': '$ git log --author="Camila" --oneline',
     'exp.machforce.r': 'Technical Lead (Hardware & Software)',
     'exp.machforce.d': 'I lead the hardware and software sub-teams of a faculty-supported student team competing in the Shell Eco-marathon. I define the overall architecture and the integration between embedded acquisition and backend, owning the full telemetry pipeline: from on-vehicle sensor acquisition to real-time processing, validation and energy analysis, with time-series persistence and dashboards that support strategic decisions during the race.',
     'exp.uea.r': 'Software Engineering · R&D',
@@ -98,14 +102,18 @@ const I18N = {
     'projects.title': 'projects', 'projects.sub': '$ ls ~/projects --sort=relevance',
     'proj.wip': 'in progress', 'proj.done': 'done', 'proj.award': '2nd place · Eng. Fair',
     'proj.energy.d': 'Embedded real-time energy consumption monitoring system: acquisition with ESP8266, cloud persistence (Firebase) and visualization in an Android app. Awarded 2nd place at the FMM Engineering Fair.',
-    'proj.carla.d': 'Energy-focused vehicular digital twin prototype structured by RAMI 4.0. Integrates a longitudinal dynamic model and a battery model to estimate consumption and regeneration in real time within the CARLA simulator. Layered architecture (Integration, Functional, Information, Communication) with AAS synchronized via Eclipse BaSyx, MQTT publishing and an OPC UA server. Validated by 29 unit tests and analytical verification with zero error.',
+    'proj.carla.d': 'Energy-focused vehicular digital twin prototype structured by RAMI 4.0. Integrates a longitudinal dynamic model and a battery model to estimate consumption and regeneration in real time within the CARLA simulator. Layered architecture (Integration, Functional, Information, Communication) with AAS synchronized via Eclipse BaSyx, MQTT publishing and an OPC UA server. Validated by 89 unit tests and analytical verification with zero error. Measured raw-to-processed latency over 248 samples: 5.7 ms mean and 9.3 ms at p95, against a 100 ms simulation step.',
     'proj.aqua.d': 'Piscis: offline-first cyber-physical system architecture for aquaculture: embedded sensing (ESP32 + water-quality sensors), MQTT communication and semantic representation via OPC UA. Includes local predictive models (Random Forest) and Genetic Algorithm heuristic search for feeding-management decision support. Evaluates performance, latency and behavior under limited connectivity. Open source.',
     'proj.caica.d': 'Mobile app for automated identification of Indigenous medicinal plants. Distributed architecture with cloud computer vision (AWS S3, Lambda, Rekognition) and an ethnobotanical database, evolving toward a hybrid architecture with local inference and offline operation. Focused on democratizing access to traditional knowledge.',
     'proj.uamqtt.d': 'Industrial communication bridge integrating the OPC UA and MQTT protocols, enabling interoperability between the shop floor and information/cloud layers.',
     'proj.gds.d': 'Proof of concept of an OPC UA Global Discovery Server with node-opcua and open62541, including a gateway-api and an AAS simulator, a basis for certificate management and endpoint discovery in industrial networks.',
     'proj.pex.d': '"Odd or Even" game controlled by hand gestures using computer vision: real-time recognition with Flask, OpenCV and MediaPipe.',
     'stack.title': 'stack',
-    'contact.title': 'contact', 'contact.cmd': 'cat contact.txt',
+    'contact.title': 'contact', 'contact.cmd': 'cat contact.txt', 'contact.reveal': 'click to reveal',
+    'exp.date1': 'Feb 2026 — present', 'exp.date2': 'Aug 2025 — present', 'exp.date3': 'Sep 2024 — Jun 2025',
+    'tl.telem': 'Telemetry', 'tl.rt': 'Real time', 'tl.integ': 'Integrations', 'tl.autom': 'Automation', 'tl.dados': 'Data analysis',
+    'rc.a1': 'Electrical Eng. · Systems Architecture', 'rc.a2': 'Automation · Control', 'rc.a3': 'Instrumentation · Sensors', 'rc.a4': 'Electrical and Industrial Processes',
+    'stk.sens': 'Sensors', 'stk.rt': 'Real time', 'stk.senstel': 'Sensors / telemetry',
     'footer.built': 'built with a terminal, coffee and OPC UA',
   }
 };
@@ -209,7 +217,21 @@ document.addEventListener('DOMContentLoaded', () => {
     applyLang(currentLang === 'pt' ? 'en' : 'pt');
   });
   initReveal();
+  initMail();
   initAas();
   initClock();
   runBoot();
 });
+
+/* ---------- Email reveal ---------- */
+function initMail() {
+  const a = document.getElementById('mail-link');
+  if (!a) return;
+  const reveal = (e) => {
+    e.preventDefault();
+    const addr = a.dataset.u + '@' + a.dataset.d;
+    a.textContent = addr;
+    a.href = 'mailto:' + addr;
+  };
+  a.addEventListener('click', reveal);
+}

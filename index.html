@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Camila Felix dos Reis — Cyber-Physical Systems</title>
   <meta name="description" content="Camila Felix dos Reis — Pesquisadora em Arquiteturas de Sistemas Ciberfísicos, Gêmeos Digitais, AAS/OPC UA e IA em edge." />
+  <link rel="canonical" href="https://cawzkf.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cawzkf.github.io/" />
+  <meta property="og:site_name" content="Camila Félix dos Reis" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Camila Félix dos Reis · Cyber-Physical Systems" />
+  <meta property="og:description" content="Arquiteturas para integração físico-digital: gêmeos digitais, representação semântica de ativos industriais (AAS/OPC UA) e IA em edge." />
+  <meta property="og:image" content="https://cawzkf.github.io/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Cartão do portfólio de Camila Félix dos Reis, em estilo terminal" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Camila Félix dos Reis · Cyber-Physical Systems" />
+  <meta name="twitter:description" content="Arquiteturas para integração físico-digital: gêmeos digitais, representação semântica de ativos industriais (AAS/OPC UA) e IA em edge." />
+  <meta name="twitter:image" content="https://cawzkf.github.io/og-card.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -34,7 +49,7 @@
       <a href="#stack" data-i18n="nav.stack">stack</a>
       <a href="#contact" data-i18n="nav.contact">contato</a>
     </nav>
-    <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+    <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
       <span class="lang-opt active" data-lang="pt">PT</span>
       <span class="lang-sep">/</span>
       <span class="lang-opt" data-lang="en">EN</span>
@@ -57,8 +72,11 @@
           <p class="line prompt-line"><span class="p10k-seg">~</span><span class="p10k-arrow">❯</span> <span class="typed" id="hero-cmd"></span><span class="cursor"></span><span class="p10k-clock" id="clock">00:00:00</span></p>
           <div class="hero-output" id="hero-output">
             <div class="hero-avatar">
-              <img src="camila.jpeg" alt="Camila Félix dos Reis" loading="lazy" />
-              <span class="avatar-tag">./camila.jpeg</span>
+              <picture>
+                <source srcset="camila.webp" type="image/webp" />
+                <img src="camila-640.jpg" alt="Camila Félix dos Reis" width="640" height="853" loading="eager" decoding="async" fetchpriority="high" />
+              </picture>
+              <span class="avatar-tag">./camila.webp</span>
             </div>
             <h1 class="hero-name">Camila Félix dos Reis</h1>
             <p class="hero-role" data-i18n="hero.role">Engenharia de Computação · Digital Twin &amp; CPS · Embedded/Backend · Tech Lead @ Mach Force · P&amp;D @ UEA</p>
@@ -158,7 +176,7 @@
           <div class="aas-tree">
 
             <div class="aas-node open">
-              <button class="aas-toggle"><span class="aas-caret">▸</span> <span class="aas-sm">Submodel</span> <span class="aas-smname">Identification</span></button>
+              <button type="button" class="aas-toggle"><span class="aas-caret">▸</span> <span class="aas-sm">Submodel</span> <span class="aas-smname">Identification</span></button>
               <div class="aas-children">
                 <div class="aas-prop"><span class="aas-k">idShort</span><span class="aas-v">CamilaFelixDosReis</span></div>
                 <div class="aas-prop"><span class="aas-k">role</span><span class="aas-v str" data-i18n="aas.role">"Engenheira de Software · CPS"</span></div>
@@ -168,7 +186,7 @@
             </div>
 
             <div class="aas-node">
-              <button class="aas-toggle"><span class="aas-caret">▸</span> <span class="aas-sm">Submodel</span> <span class="aas-smname">TechnicalData</span></button>
+              <button type="button" class="aas-toggle"><span class="aas-caret">▸</span> <span class="aas-sm">Submodel</span> <span class="aas-smname">TechnicalData</span></button>
               <div class="aas-children">
                 <div class="aas-prop"><span class="aas-k">degree</span><span class="aas-v str">"Eng. Computação — FMM"</span></div>
                 <div class="aas-prop"><span class="aas-k">since</span><span class="aas-v num">2024</span></div>
@@ -178,7 +196,7 @@
             </div>
 
             <div class="aas-node">
-              <button class="aas-toggle"><span class="aas-caret">▸</span> <span class="aas-sm">Submodel</span> <span class="aas-smname">Skills</span></button>
+              <button type="button" class="aas-toggle"><span class="aas-caret">▸</span> <span class="aas-sm">Submodel</span> <span class="aas-smname">Skills</span></button>
               <div class="aas-children">
                 <div class="aas-prop"><span class="aas-k">cps[]</span><span class="aas-v">OPC UA · AAS · Eclipse BaSyx · MQTT · RAMI 4.0</span></div>
                 <div class="aas-prop"><span class="aas-k">ai[]</span><span class="aas-v">Random Forest · Genetic Algorithm · OpenCV</span></div>
@@ -187,7 +205,7 @@
             </div>
 
             <div class="aas-node">
-              <button class="aas-toggle"><span class="aas-caret">▸</span> <span class="aas-sm">Submodel</span> <span class="aas-smname">Projects</span> <span class="aas-ref" data-i18n="aas.refs">→ referências</span></button>
+              <button type="button" class="aas-toggle"><span class="aas-caret">▸</span> <span class="aas-sm">Submodel</span> <span class="aas-smname">Projects</span> <span class="aas-ref" data-i18n="aas.refs">→ referências</span></button>
               <div class="aas-children">
                 <div class="aas-prop"><span class="aas-k">ref</span><span class="aas-v">DigitalTwin_CARLA</span></div>
                 <div class="aas-prop"><span class="aas-k">ref</span><a class="aas-v link" href="https://github.com/cawzkf/piscis" target="_blank" rel="noopener">Piscis_Aquaculture</a></div>
@@ -197,7 +215,7 @@
             </div>
 
             <div class="aas-node">
-              <button class="aas-toggle"><span class="aas-caret">▸</span> <span class="aas-sm">Submodel</span> <span class="aas-smname">OperationalState</span></button>
+              <button type="button" class="aas-toggle"><span class="aas-caret">▸</span> <span class="aas-sm">Submodel</span> <span class="aas-smname">OperationalState</span></button>
               <div class="aas-children">
                 <div class="aas-prop"><span class="aas-k">status</span><span class="aas-v str ok" data-i18n="aas.status">"pesquisando"</span></div>
                 <div class="aas-prop"><span class="aas-k">role</span><span class="aas-v str">"Tech Lead @ Mach Force"</span></div>
@@ -222,7 +240,7 @@
           <div class="tl-body">
             <div class="tl-head">
               <h3>Mach Force — Shell Eco-marathon</h3>
-              <span class="tl-date">fev 2026 — <span data-i18n="exp.now">atual</span></span>
+              <span class="tl-date" data-i18n="exp.date1">fev 2026 — atual</span>
             </div>
             <span class="tl-role" data-i18n="exp.machforce.r">Líder Técnica (Hardware &amp; Software)</span>
             <p data-i18n="exp.machforce.d">
@@ -232,7 +250,7 @@
               validação e análise energética em tempo real, com persistência de séries temporais e dashboards
               para decisão estratégica durante a corrida.
             </p>
-            <div class="tl-stack"><span>Embedded</span><span>Telemetria</span><span>Tempo real</span><span>Backend</span><span>Dashboards</span></div>
+            <div class="tl-stack"><span>Embedded</span><span data-i18n="tl.telem">Telemetria</span><span data-i18n="tl.rt">Tempo real</span><span>Backend</span><span>Dashboards</span></div>
           </div>
         </article>
 
@@ -241,7 +259,7 @@
           <div class="tl-body">
             <div class="tl-head">
               <h3>Cyberlabs — UEA · Sistemas Ciberfísicos</h3>
-              <span class="tl-date">ago 2025 — <span data-i18n="exp.now">atual</span></span>
+              <span class="tl-date" data-i18n="exp.date2">ago 2025 — atual</span>
             </div>
             <span class="tl-role" data-i18n="exp.uea.r">Engenheira de Software · P&amp;D</span>
             <p data-i18n="exp.uea.d">
@@ -250,7 +268,7 @@
               representação digital de ativos físicos, arquiteturas offline-first e integração via
               OPC UA / AAS e MQTT.
             </p>
-            <div class="tl-stack"><span>OPC UA</span><span>AAS</span><span>MQTT</span><span>Drivers</span><span>Integrações</span><span>Digital Twin</span></div>
+            <div class="tl-stack"><span>OPC UA</span><span>AAS</span><span>MQTT</span><span>Drivers</span><span data-i18n="tl.integ">Integrações</span><span>Digital Twin</span></div>
           </div>
         </article>
 
@@ -259,7 +277,7 @@
           <div class="tl-body">
             <div class="tl-head">
               <h3>TOTVS Norte</h3>
-              <span class="tl-date">set 2024 — jun 2025</span>
+              <span class="tl-date" data-i18n="exp.date3">set 2024 — jun 2025</span>
             </div>
             <span class="tl-role" data-i18n="exp.totvs.r">Analista de Suporte Técnico</span>
             <p data-i18n="exp.totvs.d">
@@ -267,7 +285,7 @@
               relatórios SQL (CTEs, INSERT, UPDATE); validação e análise de informações para garantir
               precisão e integridade dos processos; otimização de processos internos e suporte técnico à equipe.
             </p>
-            <div class="tl-stack"><span>SQL</span><span>CTEs</span><span>Automação</span><span>Análise de dados</span></div>
+            <div class="tl-stack"><span>SQL</span><span>CTEs</span><span data-i18n="tl.autom">Automação</span><span data-i18n="tl.dados">Análise de dados</span></div>
           </div>
         </article>
 
@@ -282,25 +300,25 @@
           <div class="rc-index">01</div>
           <h3 data-i18n="research.1.t">Sistemas Ciberfísicos</h3>
           <p data-i18n="research.1.d">Arquiteturas offline-first integrando camada física de sensoriamento, comunicação e representação semântica do ativo.</p>
-          <span class="rc-area">Eng. Elétrica · Arquitetura de Sistemas</span>
+          <span class="rc-area" data-i18n="rc.a1">Eng. Elétrica · Arquitetura de Sistemas</span>
         </article>
         <article class="research-card">
           <div class="rc-index">02</div>
           <h3 data-i18n="research.2.t">Gêmeos Digitais</h3>
           <p data-i18n="research.2.d">Modelagem físico-digital estruturada segundo RAMI 4.0, com sincronização de estado em tempo real e estimativa energética.</p>
-          <span class="rc-area">Automação · Controle</span>
+          <span class="rc-area" data-i18n="rc.a2">Automação · Controle</span>
         </article>
         <article class="research-card">
           <div class="rc-index">03</div>
           <h3 data-i18n="research.3.t">Semântica Industrial</h3>
           <p data-i18n="research.3.d">Representação de ativos via Asset Administration Shell (AAS) e OPC UA para interoperabilidade entre sistemas.</p>
-          <span class="rc-area">Instrumentação · Sensores</span>
+          <span class="rc-area" data-i18n="rc.a3">Instrumentação · Sensores</span>
         </article>
         <article class="research-card">
           <div class="rc-index">04</div>
           <h3 data-i18n="research.4.t">IA em Edge</h3>
           <p data-i18n="research.4.d">Modelos preditivos leves (Random Forest, busca heurística) para suporte à decisão local em infraestrutura restrita.</p>
-          <span class="rc-area">Processos Elétricos e Industriais</span>
+          <span class="rc-area" data-i18n="rc.a4">Processos Elétricos e Industriais</span>
         </article>
       </div>
     </section>
@@ -322,8 +340,8 @@
             Protótipo de gêmeo digital energético veicular estruturado por RAMI 4.0. Integra modelo
             dinâmico longitudinal e modelo de bateria para estimar consumo e regeneração em tempo real
             no simulador CARLA. Arquitetura em camadas (Integração, Funcional, Informação, Comunicação)
-            com AAS sincronizada via Eclipse BaSyx, publicação MQTT e servidor OPC UA. Validado por 29
-            testes unitários e verificação analítica com erro nulo.
+            com AAS sincronizada via Eclipse BaSyx, publicação MQTT e servidor OPC UA. Validado por 89
+            testes unitários e verificação analítica com erro nulo. Latência medida do caminho raw para processed em 248 amostras: 5,7 ms de média e 9,3 ms no p95, sobre passo de simulação de 100 ms.
           </p>
           <div class="proj-stack">
             <span>Python</span><span>CARLA</span><span>OPC UA (asyncua)</span><span>MQTT / Mosquitto</span><span>Eclipse BaSyx v2</span><span>AAS</span><span>RAMI 4.0</span>
@@ -346,7 +364,7 @@
             Avalia desempenho, latência e comportamento em conectividade limitada. Open source.
           </p>
           <div class="proj-stack">
-            <span>ESP32</span><span>Sensores</span><span>Python</span><span>OPC UA</span><span>MQTT</span><span>Random Forest</span><span>Genetic Algorithm</span><span>Edge</span>
+            <span>ESP32</span><span data-i18n="stk.sens">Sensores</span><span>Python</span><span>OPC UA</span><span>MQTT</span><span>Random Forest</span><span>Genetic Algorithm</span><span>Edge</span>
           </div>
           <div class="proj-links">
             <a href="https://github.com/cawzkf/piscis" target="_blank" rel="noopener">repo →</a>
@@ -385,7 +403,7 @@
             2º lugar na Feira de Engenharia da FMM.
           </p>
           <div class="proj-stack">
-            <span>ESP8266</span><span>Firebase</span><span>Android / Kotlin</span><span>IoT</span><span>Tempo real</span>
+            <span>ESP8266</span><span>Firebase</span><span>Android / Kotlin</span><span>IoT</span><span data-i18n="stk.rt">Tempo real</span>
           </div>
           <div class="proj-links">
             <a href="https://github.com/cawzkf/EcoActivity" target="_blank" rel="noopener">repo →</a>
@@ -456,19 +474,19 @@
           <ul><li>Python</li><li>JavaScript / TypeScript</li><li>Kotlin</li><li>C / C++</li><li>C# · SQL</li></ul>
         </div>
         <div class="stack-col">
-          <h4>// embedded & iot</h4>
-          <ul><li>ESP32 · ESP8266</li><li>Raspberry Pi · Arduino</li><li>MQTT</li><li>OPC UA</li><li>Sensores / telemetria</li></ul>
+          <h4>// embedded &amp; iot</h4>
+          <ul><li>ESP32 · ESP8266</li><li>Raspberry Pi · Arduino</li><li>MQTT</li><li>OPC UA</li><li data-i18n="stk.senstel">Sensores / telemetria</li></ul>
         </div>
         <div class="stack-col">
-          <h4>// cps & industry 4.0</h4>
+          <h4>// cps &amp; industry 4.0</h4>
           <ul><li>OPC UA (asyncua, open62541)</li><li>Asset Administration Shell</li><li>Eclipse BaSyx</li><li>RAMI 4.0</li></ul>
         </div>
         <div class="stack-col">
-          <h4>// data & ai</h4>
+          <h4>// data &amp; ai</h4>
           <ul><li>scikit-learn (Random Forest)</li><li>Genetic Algorithms</li><li>OpenCV / MediaPipe</li><li>AWS Rekognition</li></ul>
         </div>
         <div class="stack-col">
-          <h4>// cloud, infra & tools</h4>
+          <h4>// cloud, infra &amp; tools</h4>
           <ul><li>AWS (Lambda, S3, API GW)</li><li>Firebase</li><li>Docker · CARLA</li><li>React + Vite</li><li>Git · Linux</li></ul>
         </div>
       </div>
@@ -484,8 +502,6 @@
           <ul>
             <li data-i18n="extras.honor1">2º lugar na Feira de Engenharia da FMM</li>
           </ul>
-          <h4 class="mt"><span data-i18n="extras.comp">competências-chave</span></h4>
-          <div class="extra-tags"><span>IDTA</span><span>OPC UA</span><span data-i18n="extras.asset">Gestão de ativos</span></div>
         </div>
 
         <div class="extra-card">
@@ -497,6 +513,8 @@
             <li><span class="cert-name" data-i18n="extras.c4">Desenvolvimento em C# / .NET (APIs REST)</span><span class="cert-meta">UEA · 22h</span></li>
             <li><span class="cert-name" data-i18n="extras.c5">IA com Orange e Python</span><span class="cert-meta">IoT Week 2024</span></li>
           </ul>
+          <h4 class="mt"><span data-i18n="extras.comp">competências-chave</span></h4>
+          <div class="extra-tags"><span>IDTA</span><span>OPC UA</span><span data-i18n="extras.asset">Gestão de ativos</span></div>
         </div>
 
         <div class="extra-card">
@@ -526,7 +544,7 @@
           <p class="line"><span class="p10k-seg">~</span><span class="p10k-arrow">❯</span> <span data-i18n="contact.cmd">cat contato.txt</span></p>
           <ul class="contact-list">
             <li><span class="ck">github</span><a href="https://github.com/cawzkf" target="_blank" rel="noopener">github.com/cawzkf</a></li>
-            <li><span class="ck">email</span><a href="mailto:camilafelixdosreis@gmail.com">camilafelixdosreis@gmail.com</a></li>
+            <li><span class="ck">email</span><a id="mail-link" href="#" data-u="camilafelixdosreis" data-d="gmail.com" rel="nofollow" data-i18n="contact.reveal">clique para revelar</a></li>
             <li><span class="ck">lattes</span><a href="http://lattes.cnpq.br/4899528348009614" target="_blank" rel="noopener">lattes.cnpq.br/4899528348009614</a></li>
             <li><span class="ck">local</span><span>Manaus / AM · Brasil</span></li>
           </ul>
@@ -538,7 +556,7 @@
   </main>
 
   <footer class="footer">
-    <span data-i18n="footer.built">construído com shell & café </span>
+    <span data-i18n="footer.built">construído com shell &amp; café </span>
     <span class="foot-sep">·</span>
     <span>© <span id="year"></span> Camila Félix dos Reis</span>
   </footer>
