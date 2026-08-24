@@ -20,7 +20,7 @@ diretamente pelo GitHub Pages.
 | `index.html` | estrutura e conteúdo, com atributos `data-i18n` |
 | `styles.css` | tokens de cor em `:root` e todo o layout |
 | `script.js` | dicionário `I18N` (PT/EN) e as interações |
-| `camila.webp` / `camila-640.jpg` | foto do hero, servida via `<picture>` |
+| `camila.webp` | foto do hero, 38 KB contra 261 KB do original |
 | `camila.jpeg` | foto original em 1152x1536, fonte para gerar as versões servidas |
 | `og-card.png` | cartão 1200x630 usado no Open Graph e no Twitter Card |
 | `Camila_Felix_dos_Reis_CV.pdf` | currículo baixável pelo botão do hero |
