@@ -11,16 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-
-      - name: sintaxe do JavaScript
-        run: node --check script.js
-
+      - name: JavaScript syntax
+        run: |
+          node --check script.js
+          node --check theme-init.js
+          node --check translations.js
+          node --check scripts/validate.mjs
       - name: HTML
-        run: npx --yes html-validate@9 index.html
-
-      - name: i18n, arquivos locais e links
+        run: npx --yes html-validate@9 index.html scripts/og-card.html
+      - name: Translations, local files and links
         run: node scripts/validate.mjs

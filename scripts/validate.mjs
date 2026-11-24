@@ -1,64 +1,82 @@
-/* Validacao estatica do portfolio: i18n, arquivos locais, ancoras e links externos. */
 import { readFileSync, existsSync } from 'node:fs';
+import { runInNewContext } from 'node:vm';
 
 const html = readFileSync('index.html', 'utf8');
-const js = readFileSync('script.js', 'utf8');
-const erros = [];
-const avisos = [];
+const translations = readFileSync('translations.js', 'utf8');
+const errors = [];
+const warnings = [];
+const locales = ['pt-BR', 'en', 'de', 'zh-CN'];
+const dictionary = runInNewContext(translations + '\nI18N;', Object.create(null), { timeout: 1000 });
+const expectedKeys = Object.keys(dictionary['pt-BR']);
+const usedKeys = [...new Set([...html.matchAll(/data-i18n(?:-aria-label)?="([^"]+)"/g)].map(match => match[1]))];
 
-/* ---------- i18n: paridade PT/EN e cobertura do HTML ---------- */
-const bloco = js.match(/const I18N = (\{[\s\S]*?\n\});/);
-if (!bloco) {
-  erros.push('nao consegui localizar o objeto I18N em script.js');
-} else {
-  const I18N = eval('(' + bloco[1] + ')');
-  const pt = Object.keys(I18N.pt);
-  const en = Object.keys(I18N.en);
-  const usadas = [...new Set([...html.matchAll(/data-i18n="([^"]+)"/g)].map(m => m[1]))];
-
-  pt.filter(k => !en.includes(k)).forEach(k => erros.push(`chave sem traducao EN: ${k}`));
-  en.filter(k => !pt.includes(k)).forEach(k => erros.push(`chave sem versao PT: ${k}`));
-  usadas.filter(k => !pt.includes(k)).forEach(k => erros.push(`data-i18n sem entrada no dicionario: ${k}`));
-  pt.filter(k => !usadas.includes(k)).forEach(k => avisos.push(`chave nunca usada no HTML: ${k}`));
-  console.log(`i18n: ${pt.length} chaves PT, ${en.length} EN, ${usadas.length} data-i18n no HTML`);
+for (const locale of locales) {
+  const strings = dictionary[locale];
+  if (!strings) {
+    errors.push('Missing locale: ' + locale);
+    continue;
+  }
+  for (const key of expectedKeys) {
+    if (typeof strings[key] !== 'string' || !strings[key].trim()) errors.push(locale + ': missing translation for ' + key);
+  }
+  for (const key of Object.keys(strings)) {
+    if (!expectedKeys.includes(key)) errors.push(locale + ': unexpected key ' + key);
+  }
+  for (const key of usedKeys) {
+    if (!Object.hasOwn(strings, key)) errors.push(locale + ': missing HTML key ' + key);
+  }
+  if (!strings['meta.title'] || !strings['meta.description']) errors.push(locale + ': missing metadata');
 }
-
-/* ---------- referencias locais e ancoras ---------- */
-const ids = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map(m => m[1]));
-const refs = [...html.matchAll(/(?:href|src|srcset)="([^"]+)"/g)].map(m => m[1]);
-const externos = [];
-
-for (const ref of refs) {
-  if (ref.startsWith('#')) {
-    if (ref !== '#' && !ids.has(ref.slice(1))) erros.push(`ancora sem destino: ${ref}`);
-  } else if (/^https?:\/\//.test(ref)) {
-    externos.push(ref);
-  } else if (!/^(data:|mailto:|tel:)/.test(ref)) {
-    if (!existsSync(ref.split('?')[0])) erros.push(`arquivo local ausente: ${ref}`);
+for (const locale of Object.keys(dictionary)) {
+  if (!locales.includes(locale)) errors.push('Unexpected locale: ' + locale);
+}
+const decode = value => value.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&quot;/g, '"');
+for (const match of html.matchAll(/<[^>]+\sdata-i18n="([^"]+)"[^>]*>([^<]*)<\/[^>]+>/g)) {
+  if (decode(match[2]).trim() !== dictionary['pt-BR'][match[1]]) errors.push('Outdated Portuguese fallback: ' + match[1]);
+}
+const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]);
+if (new Set(ids).size !== ids.length) errors.push('Duplicate HTML ids');
+const references = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map(match => decode(match[1]));
+const external = new Set();
+for (const reference of references) {
+  if (reference.startsWith('#')) {
+    if (reference !== '#' && !ids.includes(reference.slice(1))) errors.push('Missing anchor: ' + reference);
+  } else if (/^https?:\/\//.test(reference)) {
+    if (!reference.includes('fonts.g')) external.add(reference);
+  } else if (!/^(data:|mailto:|tel:)/.test(reference)) {
+    if (!existsSync(reference.split('?')[0])) errors.push('Missing local file: ' + reference);
   }
 }
-console.log(`refs: ${refs.length} no total, ${externos.length} externas`);
-
-/* ---------- links externos ---------- */
-const unicos = [...new Set(externos)].filter(u => !u.includes('fonts.g'));
-const resultados = await Promise.all(unicos.map(async (url) => {
-  try {
-    let r = await fetch(url, { method: 'HEAD', redirect: 'follow' });
-    if (r.status === 405 || r.status === 403) r = await fetch(url, { method: 'GET', redirect: 'follow' });
-    return { url, status: r.status };
-  } catch (e) {
-    return { url, status: 0, erro: e.message };
-  }
-}));
-
-for (const { url, status, erro } of resultados) {
-  if (status === 404 || status === 410) erros.push(`link quebrado (${status}): ${url}`);
-  else if (status === 0) avisos.push(`nao consegui checar: ${url} (${erro})`);
-  else if (status >= 400) avisos.push(`status ${status}: ${url}`);
+for (const locale of [...locales, 'x-default']) {
+  if (!html.includes('hreflang="' + locale + '"')) errors.push('Missing hreflang: ' + locale);
 }
-
-/* ---------- relatorio ---------- */
-avisos.forEach(a => console.log(`AVISO  ${a}`));
-erros.forEach(e => console.log(`ERRO   ${e}`));
-console.log(`\n${erros.length} erro(s), ${avisos.length} aviso(s)`);
-process.exit(erros.length ? 1 : 0);
+for (const section of ['top', 'about', 'aas', 'experience', 'research', 'projects', 'stack', 'extras', 'contact']) {
+  if (!ids.includes(section)) errors.push('Missing section: ' + section);
+}
+for (const key of ['vehicle', 'machforce', 'piscis', 'caica', 'energy', 'bridge', 'gds', 'pex']) {
+  if (!ids.includes('project-' + key)) errors.push('Missing project: ' + key);
+}
+console.log('Translations: ' + locales.length + ' locales, ' + expectedKeys.length + ' keys each, ' + usedKeys.length + ' HTML keys');
+console.log('References: ' + references.length + ', projects: 8');
+if (!process.argv.includes('--offline')) {
+  await Promise.all([...external].map(async url => {
+    try {
+      const request = method => fetch(url, { method, redirect: 'follow', signal: AbortSignal.timeout(10000) });
+      let response = await request('HEAD');
+      if ([403, 405].includes(response.status)) {
+        await response.body?.cancel();
+        response = await request('GET');
+      }
+      const status = response.status;
+      await response.body?.cancel();
+      if ([404, 410].includes(status)) errors.push('Broken link (' + status + '): ' + url);
+      else if (status >= 400) warnings.push('HTTP ' + status + ': ' + url);
+    } catch (error) {
+      warnings.push('External link unavailable: ' + url + ' (' + error.message + ')');
+    }
+  }));
+}
+warnings.forEach(message => console.log('WARNING ' + message));
+errors.forEach(message => console.error('ERROR ' + message));
+console.log(errors.length + ' error(s), ' + warnings.length + ' warning(s)');
+process.exitCode = errors.length ? 1 : 0;
