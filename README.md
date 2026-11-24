@@ -16,17 +16,17 @@ separadores, com o conteúdo profissional e os quatro idiomas preservados.
 | `styles.css` | Tokens visuais, temas claro/escuro, responsividade e impressão |
 | `translations.js` | Dicionário centralizado: pt-BR, en, de e zh-CN |
 | `theme-init.js` | Tema escuro antes da renderização, respeitando a preferência local |
-| `script.js` | Idiomas, metadados, tema, menu, navegação e revelação do e-mail |
+| `script.js` | Idiomas, metadados, tema, menu, navegação, e-mail e relógio |
 | `scripts/validate.mjs` | Validação de traduções, conteúdo inicial, arquivos e links |
 | `scripts/og-card.html` | Fonte visual da imagem de compartilhamento, 1200 × 630 |
 | `favicon.svg` | Identidade vetorial |
 | `camila.webp` | Fotografia otimizada utilizada na página e na imagem social |
 | `camila.jpeg` | Fotografia original |
 | `og-card.png` | Imagem Open Graph e Twitter Card |
-| `Camila_Felix_dos_Reis_CV.pdf` | Currículo original para download |
+| `Camila_Felix_dos_Reis_CV.pdf` | Currículo em português fornecido para download |
 
-A página reúne Início, Sobre, Experiência, Pesquisa, Projetos de Engenharia,
-Competências Técnicas, Formação e Reconhecimentos, e Contato. Os destinos
+A página reúne Início, Sobre mim, Experiência, Pesquisa, Projetos, Competências,
+Formação e Contato. Os destinos
 `#top`, `#about`, `#aas`, `#experience`, `#research`, `#projects`, `#stack`,
 `#extras` e `#contact` permanecem disponíveis.
 
@@ -60,9 +60,12 @@ idioma do documento acompanham a seleção. Os links hreflang indicam as quatro
 opções e x-default. Como a hospedagem é estática, crawlers que não executam
 JavaScript recebem os metadados e o conteúdo inicial em português.
 
-A identidade profissional em inglês e R&D @ UEA são preservados em todos os
+O nome e a referência R&D @ UEA são preservados em todos os
 idiomas. As opções de tradução do site não representam fluência pessoal.
-O currículo baixável continua sendo o PDF existente, sem versões traduzidas.
+O currículo baixável é o novo PDF em português fornecido, preservado no caminho
+Camila_Felix_dos_Reis_CV.pdf para manter os links de download. O inglês está
+padronizado como intermediário (B1); o cargo é de desenvolvedora de software
+(back-end), com vínculo de bolsista de PD&I na CyberLabs / UEA.
 
 Projetos usam artigos com estrutura comum e detalhes expansíveis nativos.
 A representação AAS é conceitual e usa submodelos expansíveis nativos, com
@@ -129,3 +132,8 @@ inspecioná-la sem alterar a pasta de trabalho:
 ```bash
 git show v1.0.0:index.html
 ```
+
+Detalhes autorais recuperados do histórico: relógio do prompt e título pessoal
+da AAS. O rodapé restaura a frase original 'construído com shell & café', o
+separador central e o copyright. O carregamento da página permanece imediato.
+Conhecimentos aplicados e áreas de estudo são apresentados separadamente.

@@ -87,6 +87,16 @@
   menuToggle.hidden = false;
   mailReveal.hidden = false;
   document.getElementById('year').textContent = String(new Date().getFullYear());
+  const clock = document.getElementById('clock');
+  if (clock) {
+    const tick = () => {
+      const now = new Date();
+      clock.textContent = [now.getHours(), now.getMinutes(), now.getSeconds()]
+        .map(value => String(value).padStart(2, '0')).join(':');
+    };
+    tick();
+    setInterval(tick, 1000);
+  }
 
   languageSelect.addEventListener('change', () => applyLanguage(languageSelect.value, true));
   themeToggle.addEventListener('click', () => applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark', true));
