@@ -20,8 +20,7 @@ separadores, com o conteúdo profissional e os quatro idiomas preservados.
 | `scripts/validate.mjs` | Validação de traduções, conteúdo inicial, arquivos e links |
 | `scripts/og-card.html` | Fonte visual da imagem de compartilhamento, 1200 × 630 |
 | `favicon.svg` | Identidade vetorial |
-| `camila.webp` | Fotografia otimizada utilizada na página e na imagem social |
-| `camila.jpeg` | Fotografia original |
+| `camila-perfil-2026-11-24.webp` | Fotografia pessoal atual em WebP sem perdas, sem filtros |
 | `og-card.png` | Imagem Open Graph e Twitter Card |
 | `Camila_Felix_dos_Reis_CV.pdf` | Currículo em português fornecido para download |
 
