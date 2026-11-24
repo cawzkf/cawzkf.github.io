@@ -4,6 +4,10 @@ Portfólio de engenharia e pesquisa aplicada: sistemas ciberfísicos, sistemas
 embarcados, gêmeos digitais e mobilidade elétrica. HTML, CSS e JavaScript puro,
 sem dependências de execução, backend ou etapa de build.
 
+A identidade visual evolui o terminal original: preto e verde, JetBrains Mono,
+Space Grotesk e perfil AAS em árvore. Pesquisa e projetos usam listas e
+separadores, com o conteúdo profissional e os quatro idiomas preservados.
+
 ## Estrutura
 
 | Arquivo | Responsabilidade |
@@ -11,7 +15,7 @@ sem dependências de execução, backend ou etapa de build.
 | `index.html` | Conteúdo inicial em pt-BR, seções semânticas e componentes declarativos |
 | `styles.css` | Tokens visuais, temas claro/escuro, responsividade e impressão |
 | `translations.js` | Dicionário centralizado: pt-BR, en, de e zh-CN |
-| `theme-init.js` | Tema antes da renderização, com preferência local ou do sistema |
+| `theme-init.js` | Tema escuro antes da renderização, respeitando a preferência local |
 | `script.js` | Idiomas, metadados, tema, menu, navegação e revelação do e-mail |
 | `scripts/validate.mjs` | Validação de traduções, conteúdo inicial, arquivos e links |
 | `scripts/og-card.html` | Fonte visual da imagem de compartilhamento, 1200 × 630 |
@@ -36,7 +40,7 @@ python3 -m http.server 8080 --bind 127.0.0.1
 
 Abra http://127.0.0.1:8080. Também é possível abrir `index.html` diretamente.
 Os scripts são clássicos, sem imports ou fetch de conteúdo, mantendo esse uso.
-As fontes Manrope e IBM Plex Mono vêm do Google Fonts e possuem fontes de
+As fontes JetBrains Mono e Space Grotesk vêm do Google Fonts e possuem fontes de
 sistema como alternativa.
 
 ## Conteúdo e internacionalização
@@ -61,7 +65,9 @@ idiomas. As opções de tradução do site não representam fluência pessoal.
 O currículo baixável continua sendo o PDF existente, sem versões traduzidas.
 
 Projetos usam artigos com estrutura comum e detalhes expansíveis nativos.
-A representação AAS é conceitual e usa submodelos expansíveis. O e-mail é
+A representação AAS é conceitual e usa submodelos expansíveis nativos, com
+navegação por teclado. O tema escuro é o padrão; a opção clara e a preferência
+salva continuam disponíveis. O e-mail é
 revelado por botão e então se torna um link mailto funcional.
 
 ## Critérios de conteúdo
@@ -116,7 +122,7 @@ O ambiente de publicação permanece GitHub Pages, branch `main`, diretório rai
 sem build. A publicação exige o fluxo de revisão e envio do repositório; esta
 refatoração não executa deploy, commit ou push automaticamente.
 
-A versão anterior com estética de terminal está preservada na tag local
+A versão anterior com estética de terminal está preservada na tag
 `v1.0.0`, no commit `cd06823311a5a126e3e78b7e111ae5722706d065`. Para
 inspecioná-la sem alterar a pasta de trabalho:
 

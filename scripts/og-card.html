@@ -5,26 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <title>Camila Félix dos Reis | Social preview</title>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
-    body { margin: 0; width: 1200px; height: 630px; background: #112d45; color: #f6f9fc; font-family: Manrope, sans-serif; padding: 60px 64px; position: relative; overflow: hidden; }
-    .label { font-size: 17px; letter-spacing: 2px; color: #b7e1e9; margin: 0 0 36px; }
-    .name { font-size: 27px; font-weight: 500; margin: 0 0 18px; }
-    h1 { font-size: 62px; line-height: 1.13; letter-spacing: -3px; font-weight: 600; margin: 0; max-width: 730px; }
-    .fields { font-size: 20px; color: #b7e1e9; line-height: 1.7; margin-top: 28px; max-width: 680px; }
-    .url { position: absolute; bottom: 48px; left: 64px; font-size: 18px; color: #c6d4e0; }
-    .portrait { position: absolute; width: 280px; height: 367px; top: 130px; right: 64px; object-fit: cover; object-position: center 25%; filter: saturate(.55); }
-    .frame { position: absolute; top: 114px; right: 48px; width: 280px; height: 367px; border: 1px solid #5e7d92; }
+    body { margin: 0; width: 1200px; height: 630px; background: #000; color: #fff7f6; padding: 48px; font-family: "Space Grotesk", sans-serif; }
+    .window { height: 534px; border: 1px solid #2b2b2b; border-radius: 5px; background: #0c0c0c; overflow: hidden; }
+    .bar { height: 46px; border-bottom: 1px solid #2b2b2b; background: #151515; font: 400 14px "JetBrains Mono", monospace; color: #a4a4a4; display: flex; align-items: center; padding: 0 24px; }
+    .body { position: relative; padding: 32px; }
+    .prompt { font: 400 16px "JetBrains Mono", monospace; margin: 0 0 32px; }
+    .green { color: #16c60c; }
+    .cyan { color: #61d6d6; }
+    h1 { font-size: 43px; font-weight: 600; letter-spacing: -1.5px; margin: 0 0 14px; }
+    .label { color: #a4a4a4; font: 400 14px "JetBrains Mono", monospace; margin: 0 0 10px; }
+    .position { font: 400 21px "JetBrains Mono", monospace; margin: 0 0 24px; }
+    .fields { font: 400 18px/1.9 "JetBrains Mono", monospace; color: #16c60c; margin: 0; }
+    .url { font: 400 15px "JetBrains Mono", monospace; color: #a4a4a4; margin: 32px 0 0; }
+    img { position: absolute; width: 190px; height: 190px; top: 96px; right: 32px; object-fit: cover; object-position: center top; filter: grayscale(.35) contrast(1.05); border: 1px solid #2b2b2b; border-radius: 4px; }
   </style>
 </head>
 <body>
-  <p class="label">RESEARCH &amp; APPLIED ENGINEERING</p>
-  <p class="name">Camila Félix dos Reis</p>
-  <h1>Bridging Physical<br>and Digital Systems.</h1>
-  <p class="fields">Cyber-Physical &amp; Embedded Systems<br>Digital Twins • E-Mobility • R&amp;D @ UEA</p>
-  <p class="url">cawzkf.github.io</p>
-  <div class="frame" aria-hidden="true"></div>
-  <img class="portrait" src="../camila.webp" alt="Camila Félix dos Reis" width="280" height="367">
+  <main class="window">
+    <div class="bar" aria-hidden="true">~/whoami</div>
+    <div class="body">
+      <p class="prompt"><span class="cyan">~</span> <span class="green">❯</span> whoami --verbose</p>
+      <p class="label">RESEARCH &amp; APPLIED ENGINEERING</p>
+      <h1>Camila Félix dos Reis</h1>
+      <p class="position">Bridging Physical and Digital Systems.</p>
+      <p class="fields">Cyber-Physical &amp; Embedded Systems<br>Digital Twins • E-Mobility • R&amp;D @ UEA</p>
+      <p class="url">cawzkf.github.io</p>
+      <img src="../camila.webp" alt="Camila Félix dos Reis" width="190" height="190">
+    </div>
+  </main>
 </body>
 </html>

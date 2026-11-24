@@ -7,8 +7,7 @@
   const navigation = document.getElementById('navigation');
   const mailReveal = document.getElementById('mail-reveal');
   const mailLink = document.getElementById('mail-link');
-  const scheme = window.matchMedia('(prefers-color-scheme: dark)');
-  const desktop = window.matchMedia('(min-width: 1101px)');
+  const desktop = window.matchMedia('(min-width: 1281px)');
 
   const readPreference = key => {
     try { return localStorage.getItem(key); } catch { return null; }
@@ -82,7 +81,7 @@
   const queryLanguage = new URL(window.location.href).searchParams.get('lang');
   const savedLanguage = readPreference('portfolio-language');
   applyLanguage(locales.includes(queryLanguage) ? queryLanguage : locales.includes(savedLanguage) ? savedLanguage : 'pt-BR');
-  applyTheme(root.dataset.theme || (scheme.matches ? 'dark' : 'light'));
+  applyTheme(root.dataset.theme || 'dark');
   languageSelect.closest('.language-control').hidden = false;
   themeToggle.hidden = false;
   menuToggle.hidden = false;
@@ -91,9 +90,6 @@
 
   languageSelect.addEventListener('change', () => applyLanguage(languageSelect.value, true));
   themeToggle.addEventListener('click', () => applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark', true));
-  scheme.addEventListener('change', event => {
-    if (!readPreference('portfolio-theme')) applyTheme(event.matches ? 'dark' : 'light');
-  });
   menuToggle.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
   navigation.addEventListener('click', event => {
     if (event.target.closest('a')) setMenu(false);
