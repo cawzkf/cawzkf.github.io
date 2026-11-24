@@ -37,6 +37,11 @@ for (const match of html.matchAll(/<[^>]+\sdata-i18n="([^"]+)"[^>]*>([^<]*)<\/[^
 const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]);
 if (new Set(ids).size !== ids.length) errors.push('Duplicate HTML ids');
 const references = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map(match => decode(match[1]));
+const githubProfile = 'https://github.com/cawzkf';
+for (const match of (html + '\n' + translations).replace(/\\\//g, '/').matchAll(/https?:\/\/(?:www\.)?github\.com\b[^\s"'<>\\]*/gi)) {
+  if (match[0].replace(/\/$/, '') !== githubProfile) errors.push('Only the personal GitHub profile may be linked: ' + match[0]);
+}
+if (!references.includes(githubProfile)) errors.push('Missing personal GitHub profile link');
 const external = new Set();
 for (const reference of references) {
   if (reference.startsWith('#')) {
@@ -50,14 +55,21 @@ for (const reference of references) {
 for (const locale of [...locales, 'x-default']) {
   if (!html.includes('hreflang="' + locale + '"')) errors.push('Missing hreflang: ' + locale);
 }
-for (const section of ['top', 'about', 'aas', 'experience', 'research', 'projects', 'stack', 'extras', 'contact']) {
+for (const section of ['top', 'about', 'aas', 'experience', 'research', 'projects', 'products', 'stack', 'extras', 'contact']) {
   if (!ids.includes(section)) errors.push('Missing section: ' + section);
 }
-for (const key of ['vehicle', 'machforce', 'piscis', 'caica', 'energy', 'bridge', 'gds', 'pex']) {
+const projects = ['vehicle', 'machforce', 'aruana', 'piscis', 'caica', 'energy', 'bridge', 'gds'];
+const products = ['quitanda', 'dental'];
+for (const key of products) {
+  if (!ids.includes('product-' + key)) errors.push('Missing product: ' + key);
+}
+if (ids.filter(id => id.startsWith('product-')).length !== products.length) errors.push('Unexpected product count');
+for (const key of projects) {
   if (!ids.includes('project-' + key)) errors.push('Missing project: ' + key);
 }
 console.log('Translations: ' + locales.length + ' locales, ' + expectedKeys.length + ' keys each, ' + usedKeys.length + ' HTML keys');
-console.log('References: ' + references.length + ', projects: 8');
+if (ids.filter(id => id.startsWith('project-')).length !== projects.length) errors.push('Unexpected project count');
+console.log('References: ' + references.length + ', projects: ' + projects.length + ', products: ' + products.length);
 if (!process.argv.includes('--offline')) {
   await Promise.all([...external].map(async url => {
     try {

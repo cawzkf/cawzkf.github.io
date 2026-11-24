@@ -25,10 +25,10 @@ separadores, com o conteúdo profissional e os quatro idiomas preservados.
 | `og-card.png` | Imagem Open Graph e Twitter Card |
 | `Camila_Felix_dos_Reis_CV.pdf` | Currículo em português fornecido para download |
 
-A página reúne Início, Sobre mim, Experiência, Pesquisa, Projetos, Competências,
+A página reúne Início, Sobre mim, Experiência, Pesquisa, Projetos, Produtos autorais, Competências,
 Formação e Contato. Os destinos
 `#top`, `#about`, `#aas`, `#experience`, `#research`, `#projects`, `#stack`,
-`#extras` e `#contact` permanecem disponíveis.
+`#extras` e `#contact` permanecem disponíveis. A seção de produtos usa `#products`.
 
 ## Execução local
 
@@ -75,7 +75,13 @@ revelado por botão e então se torna um link mailto funcional.
 
 ## Critérios de conteúdo
 
-- Preservar os sete projetos anteriores e apresentar MachForce separadamente.
+- Apresentar oito projetos de engenharia e dois produtos autorais, distinguindo
+  MachForce da iniciação científica.
+- Quitanda separa recursos implementados, validação do piloto e evolução planejada;
+  Gestão Odontológica descreve os fluxos demonstrados.
+- Aruanã distingue prototipagem, dados hidrológicos e imagens reais de cenários
+  simulados, com validação operacional ainda pendente.
+- Manter apenas o link geral do GitHub, sem links para repositórios de projetos.
 - Distinguir a iniciação científica de modelagem energética do desenvolvimento
   coletivo do protótipo MachForce, que permanece em andamento.
 - Identificar a contribuição individual quando ela está documentada.
